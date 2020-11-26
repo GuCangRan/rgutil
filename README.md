@@ -66,7 +66,5 @@ import { isNumber } from "rgutil/utils/main.js";
 
 
 # 给作者一点氧气,缓解心脏和发型
-
-
-![zhifubao](.\src\assets\zhifubao.jpg)![weixin](.\src\assets\weixin.png)
+![zhifubao](src/assets/zhifubao.jpg)![weixin](src/assets/weixin.png)
 
