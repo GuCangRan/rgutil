@@ -11,10 +11,10 @@ rtuils默认以$R命名开头
 ```
 
 # 文档地址
-https://gucangran.github.io/rutils/
+ https://gucangran.github.io/rgutil/
 
 # 资源在线下载
-https://cdn.jsdelivr.net/gh/GuCangRan/rutils@latest/dist/
+在github源码dist文件夹,可自行下载
 
 说明: rgutil支持页面直接引用使用,操作如下
 
