@@ -11,33 +11,33 @@ import {
 
 
 var config = {
-    input: 'utils/main.js',
+    input: 'index.js',
     output: [{
-            file: 'dist/rutil.js',
+            file: 'dist/rgutil.js',
             format: 'iife', // iife 表示立即执行函数
             name: utilName,
             sourcemap: false
         },
         {
-            file: 'dist/rutil.esm.js',
+            file: 'dist/rgutil.esm.js',
             format: 'esm',
             name: utilName,
             sourcemap: false
         },
         {
-            file: 'dist/rutil.umd.js',
+            file: 'dist/rgutil.umd.js',
             format: 'umd',
             name: utilName,
             sourcemap: false
         },
         {
-            file: 'dist/rutil.cjs.js',
+            file: 'dist/rgutil.cjs.js',
             format: 'cjs',
             name: utilName,
             sourcemap: false
         },
         {
-            file: 'dist/rutil.amd.js',
+            file: 'dist/rgutil.amd.js',
             format: 'amd',
             amd: {
                 define: 'define'

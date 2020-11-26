@@ -6,7 +6,7 @@
           type="text"
           v-model="search"
           placeholder="  找找看 API"
-          class="search-input"
+          class="search-input serarch-position"
         />
       </div>
 
@@ -14,6 +14,7 @@
         <div
           @click="group.expand = !group.expand"
           class="doc-title"
+          :style="index == 0 ? 'margin-top:40px' : ''"
           v-show="group.children.length > 0"
         >
           {{ group.label }}
@@ -91,7 +92,7 @@
 <script>
 import Prism from "prismjs";
 import "/@modules/prismjs/themes/prism.css";
-import * as $R from "../../utils/main.js";
+import * as $R from "../../index.js";
 import docData from "./../doc/index.js";
 
 import { reactive, ref, toRef, toRefs, computed } from "vue";
@@ -112,9 +113,10 @@ export default {
       return doc.doc.filter((item, index) => {
         return (item.children = docTree[index].children.filter((child) => {
           return (
-            child.name.indexOf(search.value) >= 0 ||
-            child.title.indexOf(search.value) >= 0 ||
-            child.desc.indexOf(search.value) >= 0
+            child.name.toLowerCase().indexOf(search.value.toLowerCase()) >= 0 ||
+            child.title.toLowerCase().indexOf(search.value.toLowerCase()) >=
+              0 ||
+            child.desc.toLowerCase().indexOf(search.value.toLowerCase()) >= 0
           );
         }));
       });
@@ -151,7 +153,7 @@ export default {
           const ret = $R[funcName].apply($R, [demoValue]);
           return `$R.${funcName}(${toString(demoValue)})  //${toString(ret)}`;
         } catch (error) {
-          console.error(error);
+          //console.error(error);
           return `$R.${funcName}(${demoValue})发生异常,原因:${error}`;
         }
       };
@@ -170,7 +172,7 @@ export default {
           item.testValue
         })  //测试结果: ${toString(ret)}`;
       } catch (error) {
-        console.error(error);
+        //console.error(error);
         item.testResult = `$R.${item.name}(${item.testValue})发生异常,原因:${error}`;
       }
     };
@@ -241,6 +243,12 @@ function toString(val) {
   border-radius: 4px;
   margin: 5px 0;
 }
+.serarch-position {
+  top: 45px;
+  position: fixed;
+  left: 5px;
+  width: 330px;
+}
 
 .search-input:focus {
   border-color: #66afe9;
@@ -250,7 +258,8 @@ function toString(val) {
 
 .doc-title {
   font-size: 18px;
-  padding: 5px 5px;
+  margin-top: 15px;
+  padding: 5px 5px 5px 5px;
   font-weight: bold;
   border-left: 3px solid #66afe9;
   color: #66afe9;
@@ -258,7 +267,7 @@ function toString(val) {
 
 .doc-child {
   font-size: 16px;
-  height: 20px;
+  height: 23px;
   padding: 4px 15px;
   margin: 3px 0;
   display: grid;
@@ -268,6 +277,10 @@ function toString(val) {
   & div {
     border: 1px solid #f1f1f1;
     padding: 2px 0;
+  }
+  &:hover {
+    color: #7f06f8;
+    // background-color: #66afe9;
   }
 }
 

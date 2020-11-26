@@ -2,7 +2,7 @@
   "name": "rgutil",
   "version": "1.0.0",
   "description": "$R是基于ES6的JavaScript函数库",
-  "main": "utils/main.js",
+  "main": "index.js",
   "utilName": "$R",
   "scripts": {
     "rbuild": "rollup -c",

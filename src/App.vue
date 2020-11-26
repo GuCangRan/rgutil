@@ -7,7 +7,7 @@
           禿然听见需求方创意&&杠铃般的笑声, 我自己拔掉了最后一根头发
         </div>
       </div>
-      <div>
+      <div @click="gotGithub">
         <svg
           class="header-item"
           xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +37,12 @@ export default {
     BookDoc,
   },
   setup() {
-    return {};
+    const gotGithub = () => {
+      window.open("https://github.com/GuCangRan/rgutil");
+    };
+    return {
+      gotGithub,
+    };
   },
 };
 </script>

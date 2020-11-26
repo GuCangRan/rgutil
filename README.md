@@ -20,8 +20,8 @@ rgutil默认以$R命名开头
 
 ```javascript
 //立即执行函数直接引用
-<script src="rutil.js"></script>
-//或 引用 <script src="rutil.umd.js"></script>
+<script src="rgutil.js"></script>
+//或 引用 <script src="rgutil.umd.js"></script>
  <script>
   let isNumber = $R.isNumber(8);
   console.log(isNumber)
@@ -41,18 +41,19 @@ rgutil默认以$R命名开头
 
 # npm下载
 
+执行npm指令
 npm install rgutil
 
 ```javascript
 //函数全部导入
-import * as $R from "rgutil/utils/main.js";
+import * as $R from "rgutil";
 
 //代码写法:
  $R.isNumber(8)
 
 
 //按需导入
-import { isNumber } from "rgutil/utils/main.js";
+import { isNumber } from "rgutil";
 
 //操代码写法
  isNumber(8)
@@ -61,7 +62,7 @@ import { isNumber } from "rgutil/utils/main.js";
 
 
 
-# 给作者一点氧气，缓解心脏和发型，感谢有您的鼓励和支持
+# 给作者一点氧气，缓解心脏和发型，感谢有您的支持和鼓励
 
 ![weixin](src/assets/weixin.png)
 ![zhifubao](src/assets/zhifubao.png)
