@@ -21,7 +21,7 @@ rgutil默认以$R命名开头
 ```javascript
 //立即执行函数直接引用
 <script src="rutil.js"></script>
-//或 引用 <script src="../dist/rutil.umd.js"></script>
+//或 引用 <script src="rutil.umd.js"></script>
  <script>
   let isNumber = $R.isNumber(8);
   console.log(isNumber)
@@ -29,7 +29,7 @@ rgutil默认以$R命名开头
 
 //ES6模块引用文件方式
 <script type="module">
-  import * as $R from '../dist/rutil.esm.js'
+  import * as $R from 'rutil.esm.js'
   let isNumber = $R.isNumber(8);
   console.log(isNumber)
 </script>
