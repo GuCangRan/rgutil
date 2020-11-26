@@ -1,13 +1,13 @@
 # rgutil前端工具库
 `
-github仓库地址:https://github.com/GuCangRan/rutils
+github仓库地址: https://github.com/GuCangRan/rgutil
 
-rtuils以$R命名开头
+rtuils默认以$R命名开头
 ```
 1) $R是基于ES6语法设计的函数库
 2) $R支持按需加载
-3) $R也可自行下载源码拷贝自行需要方法,函数尽量保持独立
-4) $R也支持页面直接引用
+3) $R可自行下载源码拷贝自行需要方法,函数尽量保持独立
+4) $支持页面直接引用
 ```
 
 # 文档地址
@@ -66,5 +66,7 @@ import { isNumber } from "rgutil/utils/main.js";
 
 
 # 给作者一点氧气,缓解心脏和发型
-![zhifubao](src/assets/zhifubao.jpg)![weixin](src/assets/weixin.png)
+
+
+![zhifubao](src/assets/zhifubao.png)![weixin](src/assets/weixin.png)
 
