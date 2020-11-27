@@ -44,7 +44,7 @@
           <div class="doc-desc-name">{{ item.name }} {{ item.parmInfo }}</div>
           <div>{{ item.desc }}</div>
           <!-- 自测试函数处理 -->
-          <div class="test-demo" v-if="item.parmInfo != '()'">
+          <div class="test-demo" v-if="item.showDemo || item.showDemo != false">
             <div>
               武德至上 ：
               <input
@@ -85,16 +85,35 @@
         </div>
       </div>
       <div class="heart-desc">
-        喜欢就给作者一点氧气，您的氧气让作者可以面向宇宙编程，放飞灵魂
+        喜欢就给作者一点氧气，您的氧气让作者可以面向宇宙编程，放飞发型
       </div>
       <div id="myMoney" class="money-img">
-        <div>
+        <div v-show="tobottom == 0">
           <img src="../assets/weixin.png" />
         </div>
-        <div>
+        <div v-show="tobottom == 0">
           <img src="../assets/zhifubao.png" />
         </div>
       </div>
+    </div>
+    <div class="top-title" v-if="rightTop > 10" @click="goTop">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="48" height="48" fill="white" fill-opacity="0.01" />
+        <path
+          d="M12 33L24 21L36 33"
+          stroke="#000000"
+          stroke-width="4"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M12 13H36"
+          stroke="#000000"
+          stroke-width="4"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
     </div>
   </div>
 </template>
@@ -105,7 +124,7 @@ import "/@modules/prismjs/themes/prism.css";
 import * as $R from "../../index.js";
 import docData from "./../doc/index.js";
 
-import { reactive, ref, toRef, toRefs, computed, watch } from "vue";
+import { reactive, ref, toRef, toRefs, computed, watch, onMounted } from "vue";
 export default {
   name: "BookDoc",
   props: {
@@ -199,13 +218,32 @@ export default {
       }
     };
 
-    const tobottom = ref(props.tobottom);
+    let tobottom = ref(0);
     watch(
       () => props.tobottom,
       () => {
+        tobottom.value = props.tobottom % 2;
         goToScrollPostion({ name: "myMoney" });
       }
     );
+
+    let rightTop = ref(0);
+    onMounted(() => {
+      document.addEventListener(
+        "scroll",
+        () => {
+          try {
+            rightTop.value = document.getElementsByClassName(
+              "doc-container"
+            )[0].scrollTop;
+          } catch (error) {}
+        },
+        true
+      );
+    });
+    const goTop = () => {
+      $R.goToTopClassName("doc-container");
+    };
 
     return {
       Prism,
@@ -216,6 +254,9 @@ export default {
       codeDemoList,
       inputResult,
       props,
+      tobottom,
+      rightTop,
+      goTop,
     };
   },
 };
@@ -238,7 +279,7 @@ function toString(val) {
 .doc-main {
   height: 100%;
   display: grid;
-  grid-template-columns: 350px 1fr;
+  grid-template-columns: 360px 1fr;
 
   .doc-nav {
     // border: 1px solid rebeccapurple;
@@ -292,7 +333,7 @@ function toString(val) {
   padding: 4px 15px;
   margin: 3px 0;
   display: grid;
-  grid-template-columns: 150px 1fr;
+  grid-template-columns: 160px 1fr;
   cursor: Pointer;
 
   & div {
@@ -371,5 +412,16 @@ function toString(val) {
     rgba(0, 173, 181, 0.4) 100%
   );
   -webkit-background-clip: text;
+}
+.top-title {
+  position: fixed;
+  z-index: 1000;
+  right: 40px;
+  bottom: 60px;
+  border: 1px solid #afafaf;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background: #afafaf;
 }
 </style>

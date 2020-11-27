@@ -104,3 +104,40 @@ export const arrAsList = val => (Array.isArray(val) ? val : [val]);
  * @param {*} val 
  */
 export const arrIndexOfAll = (arr, val) => arr.reduce((acc, el, i) => (el === val ? [...acc, i] : acc), []);
+
+/**
+ * 返回指定长度的升序数组
+ * @param {*} arr 
+ * @param {*} n 
+ */
+export const arrMinN = (arr, n = 1) => [...arr].sort((a, b) => a - b).slice(0, n);
+
+/**
+ * 生成两数之间指定长度的随机数组
+ * @param {*} min 
+ * @param {*} max 
+ * @param {*} n 
+ */
+export const arrRandomInRange = (min, max, n = 1) =>
+    Array.from({
+        length: n
+    }, () => Math.floor(Math.random() * (max - min + 1)) + min);
+
+/**
+ * 在指定数组中获取随机数,返回一个值
+ * @param {*} arr 
+ */
+export const arrRandomSample = arr => arr[Math.floor(Math.random() * arr.length)];
+
+/**
+ * 在指定数组中获取指定长度的随机数,返回一个数组
+ * @param {*} arr 
+ */
+export const arrRandomN = ([...arr], n = 1) => {
+    let m = arr.length;
+    while (m) {
+        const i = Math.floor(Math.random() * m--);
+        [arr[m], arr[i]] = [arr[i], arr[m]];
+    }
+    return arr.slice(0, n);
+};

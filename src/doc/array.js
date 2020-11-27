@@ -234,6 +234,71 @@ const children = [{
             ],
             desc: ["[1, 2, 7], 6"],
         }]
+    },
+    {
+        base: {
+            name: "arrMinN",
+            title: "指定长度升序数组",
+            desc: "返回指定长度的升序数组",
+            parmInfo: "(arr, n = 1)"
+        },
+        demo: [{
+            parms: [
+                [3, 2, 3, 3, 5, 3], 3
+            ],
+            desc: ["[1, 2, 3, 1, 2, 3],3"],
+        }, {
+            parms: [
+                [1, 2, 7]
+            ],
+            desc: ["[1, 2, 7]"],
+        }]
+    },
+    {
+        base: {
+            name: "arrRandomInRange",
+            title: "指定长度随机数组",
+            desc: "生成两数之间指定长度的随机数组",
+            parmInfo: "(min, max, n = 1)"
+        },
+        demo: [{
+                parmMore: [10, 16, 3]
+            }, {
+                parmMore: [10, 16, 10]
+            }
+
+        ]
+    },
+    {
+        base: {
+            name: "arrRandomSample",
+            title: "数组随机抽取一个",
+            desc: "在指定数组中获取随机数,返回一个值",
+            parmInfo: "(arr)"
+        },
+        demo: [
+            [10, 16, 3],
+            ["red", "green", "blue"],
+        ]
+    },
+    {
+        base: {
+            name: "arrRandomN",
+            title: "数组随机抽取多个",
+            desc: "在指定数组中获取指定长度的数组,返回一个数组",
+            parmInfo: "([...arr], n = 1)"
+        },
+        demo: [{
+            parms: [
+                [3, 2, 3, 3, 5, 3], 3
+            ],
+            desc: ["[1, 2, 3, 1, 2, 3],3"],
+        }, {
+            parms: [
+                [1, 2, 7], 5
+            ],
+            desc: ["[1, 2, 7],5"],
+        }]
     }
 ];
 

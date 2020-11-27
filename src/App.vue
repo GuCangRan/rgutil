@@ -9,46 +9,19 @@
       </div>
 
       <div @click="goMoney" style="padding-top: 3px">
-        <?xml version="1.0" encoding="UTF-8"?><svg
-          width="33"
-          height="33"
+        <svg
+          width="30"
+          height="30"
           viewBox="0 0 48 48"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <title>帮助作者吸口氧气</title>
+          <title>这个心怎么是黑色的,哭了</title>
           <rect width="48" height="48" fill="white" fill-opacity="0.01" />
           <path
-            d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z"
+            d="M15 8C8.92487 8 4 12.9249 4 19C4 30 17 40 24 42.3262C31 40 44 30 44 19C44 12.9249 39.0751 8 33 8C29.2797 8 25.9907 9.8469 24 12.6738C22.0093 9.8469 18.7203 8 15 8Z"
             fill="none"
-            stroke="#333"
-            stroke-width="4"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M18 22H30"
-            stroke="#333"
-            stroke-width="4"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M18 28H30"
-            stroke="#333"
-            stroke-width="4"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M24.0083 22V34"
-            stroke="#333"
-            stroke-width="4"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M30 15L24 21L18 15"
-            stroke="#333"
+            stroke="#000000"
             stroke-width="4"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -79,7 +52,7 @@
 
 <script>
 import BookDoc from "./components/bookdoc.vue";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 export default {
   name: "App",
   components: {
@@ -90,9 +63,8 @@ export default {
       window.open("https://github.com/GuCangRan/rgutil");
     };
 
-    const bValue = ref(0);
+    const bValue = ref(1);
     const goMoney = () => {
-      //console.log(bValue.value);
       bValue.value++;
     };
 
