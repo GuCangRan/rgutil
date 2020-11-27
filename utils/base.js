@@ -122,3 +122,19 @@ export const isObject = v => (v !== null && typeof v === 'object');
  * @param {*} v 
  */
 export const isFunction = v => ['[object Function]', '[object GeneratorFunction]', '[object AsyncFunction]', '[object Promise]'].includes(Object.prototype.toString.call(v));
+
+/**
+ * 银行卡号码校验（luhn算法）
+ * 测试此算法有问题,可以参考学习下此算法
+ * @param {*} num 
+ */
+// const isLuhnCheck = num => {
+//     let arr = (num + '')
+//         .split('')
+//         .reverse()
+//         .map(x => parseInt(x));
+//     let lastDigit = arr.splice(0, 1)[0];
+//     let sum = arr.reduce((acc, val, i) => (i % 2 !== 0 ? acc + val : acc + ((val * 2) % 9) || 9), 0);
+//     sum += lastDigit;
+//     return sum % 10 === 0;
+// };

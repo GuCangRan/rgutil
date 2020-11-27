@@ -299,6 +299,49 @@ const children = [{
             ],
             desc: ["[1, 2, 7],5"],
         }]
+    },
+    {
+        base: {
+            name: "arrShuffle",
+            title: "数组随机打乱",
+            desc: "数组随机打乱产生新的数组,返回一个值",
+            parmInfo: "(arr)"
+        },
+        demo: [
+            [10, 16, 3],
+            ["red", "green", "blue"],
+        ]
+    },
+    {
+        base: {
+            name: "arrToTree",
+            title: "数组转换树",
+            desc: "将数组转换为树形结构的对象",
+            parmInfo: "(items, id = null, link = 'parent_id')"
+        },
+        demo: [
+            [{
+                    id: 1,
+                    parent_id: null
+                },
+                {
+                    id: 2,
+                    parent_id: 1
+                },
+                {
+                    id: 3,
+                    parent_id: 1
+                },
+                {
+                    id: 4,
+                    parent_id: 2
+                },
+                {
+                    id: 5,
+                    parent_id: 4
+                }
+            ]
+        ]
     }
 ];
 

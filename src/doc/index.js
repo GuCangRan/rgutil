@@ -1,11 +1,13 @@
 import base from './base.js'
 import array from './array.js'
+import func from './function.js'
 import datetime from './datetime.js'
 import window from './window.js'
 //将文档说明都集成此数组
 const dataList = [
     base,
     array,
+    func,
     datetime,
     window
 ]

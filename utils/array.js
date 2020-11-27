@@ -141,3 +141,30 @@ export const arrRandomN = ([...arr], n = 1) => {
     }
     return arr.slice(0, n);
 };
+
+/**
+ * 数组随机打乱产生新的数组
+ * @param {*} array
+ */
+export const arrShuffle = ([...arr]) => {
+    let m = arr.length;
+    while (m) {
+        const i = Math.floor(Math.random() * m--);
+        [arr[m], arr[i]] = [arr[i], arr[m]];
+    }
+    return arr;
+};
+
+/**
+ * 将数组转换为树形结构的对象
+ * @param {*} items 
+ * @param {*} id 
+ * @param {*} link 
+ */
+export const arrToTree = (items, id = null, link = 'parent_id') =>
+    items
+    .filter(item => item[link] === id)
+    .map(item => ({
+        ...item,
+        children: arrToTree(items, item.id)
+    }));

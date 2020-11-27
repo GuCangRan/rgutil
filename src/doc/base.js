@@ -271,7 +271,16 @@ const children = [{
             async function () {},
                 () => {}
         ]
-    }
+    },
+    // {
+    //     base: {
+    //         name: "isLuhnCheck",
+    //         title: "是否银行卡",
+    //         desc: "银行卡号码校验（luhn算法）",
+    //         parmInfo: "(value)"
+    //     },
+    //     demo: ["4485275742308327"]
+    // }
 ];
 
 const docData = {
