@@ -2,6 +2,8 @@
 `
 github仓库地址: https://github.com/GuCangRan/rgutil
 
+**特别说明**:很多函数借助了很多大神的开源文章,进行整理合成,希望函数工具能够整合很多的场景,而又保持独立函数特性,便于开发者直接引用,非常感谢这些大神的付出
+
 rgutil默认以$R命名开头
 ```
 1) $R是基于ES6语法设计的函数库
@@ -64,5 +66,5 @@ import { isNumber } from "rgutil";
 
 # 给作者一点氧气，缓解心脏和发型，感谢有您的支持和鼓励
 
-![weixin](src/assets/weixin.png)
-![zhifubao](src/assets/zhifubao.png)
+![weixin](./src/assets/weixin.png)
+![zhifubao](./src/assets/zhifubao.png)
