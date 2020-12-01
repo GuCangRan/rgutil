@@ -1,5 +1,23 @@
 const children = [{
         base: {
+            name: "dateFormat",
+            title: "格式化日期",
+            desc: `格式化日期
+              valueFormat: yyyy-MM-dd HH:mm:fff
+                           yy   M  d  H  m  f    格式任意组合\n
+              dateTime: 默认当前日期new Date()`,
+            parmInfo: "(valueFormat, dateTime = new Date())"
+        },
+        demo: [{
+            parms: ["yyyy-MM-dd HH:mm:fff"],
+            desc: [`"yyyy-MM-dd HH:mm:fff"`],
+        }, {
+            parms: ["yyyy-MM-dd HH:mm:fff", new Date(2020, 10, 1, 10, 10, 10)],
+            desc: [`"yyyy-MM-dd HH:mm:fff",new Date(2020,10,1,10,10,10)`],
+        }]
+    },
+    {
+        base: {
             name: "daysDiff",
             title: "日期之差天数",
             desc: "计算两个日期之间的差异天数",

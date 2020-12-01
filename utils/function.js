@@ -26,7 +26,7 @@ export const getType = v => v === undefined ? 'undefined' : v === null ? 'null' 
 
 
 /**
- * 当然是用来防XSS攻击啦
+ * 去除HTML标签
  * @param {*} str 
  */
 export const escapeHTML = str =>
@@ -41,3 +41,29 @@ export const escapeHTML = str =>
             '"': '&quot;'
         } [tag] || tag)
     );
+
+/**
+ * 将数字进行分割
+ * @param {*} num  数字
+ * @param {*} cnt 要分割的数量
+ * @param {*} split 分隔符,默认,
+ */
+export const formatNumber = (num, cnt = 3, split = ',') => {
+    //let reg = /\B(?=(\d{3})+(?!\d))/g;
+    let reg = new RegExp(`\\B(?=(\\d{${cnt}})+(?!\\d))`, "g")
+    // num.toString().replace(reg, ($, $1) => {
+    //     console.log("22", $, $1);
+    // })
+    return num.toString().replace(reg, split);
+}
+
+/**
+ * 将字符串进行分割
+ * @param {*} val  string
+ * @param {*} cnt 要分割的数量
+ * @param {*} split 分隔符,默认,
+ */
+export const formatString = (val, cnt = 3, split = ',') => {
+    let reg = new RegExp(`\\B(?=(\\w{${cnt}})+(?!\\w))`, "g")
+    return val.replace(reg, split);
+}

@@ -1,6 +1,6 @@
 {
   "name": "rgutil",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "$R是基于ES6的JavaScript函数库",
   "main": "index.js",
   "utilName": "$R",

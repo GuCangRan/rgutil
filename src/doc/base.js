@@ -272,6 +272,41 @@ const children = [{
                 () => {}
         ]
     },
+    {
+        base: {
+            name: "isWeChat",
+            title: "是否微信号",
+            desc: "验证微信号，6至20位，以字母开头，字母，数字，减号，下划线",
+            parmInfo: "(string)"
+        },
+        demo: [
+            ["abc2232332"]
+        ]
+    },
+    {
+        base: {
+            name: "isChineseName",
+            title: "是否中文姓名",
+            desc: "是否中文姓名",
+            parmInfo: "(string)"
+        },
+        demo: [
+            ["张三"],
+            ["zhang三"]
+        ]
+    },
+    {
+        base: {
+            name: "isEnglishName",
+            title: "是否英文姓名",
+            desc: "是否英文姓名",
+            parmInfo: "(string)"
+        },
+        demo: [
+            ["lily"],
+            ["shily 杨"]
+        ]
+    }
     // {
     //     base: {
     //         name: "isLuhnCheck",

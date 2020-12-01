@@ -66,6 +66,36 @@ const children = [{
             parms: ["<div v-for='(group, index) in listDoc' :key='index'>123</div>"],
             desc: ["\"<div v-for='(group, index) in listDoc' :key='index'>123</div>\""]
         }]
+    },
+    {
+        base: {
+            name: "formatNumber",
+            title: "格式化数值",
+            desc: "将数字进行分割",
+            parmInfo: "(num, cnt =3, split = ',')"
+        },
+        demo: [{
+            parms: [123456789],
+            desc: [`123456789`]
+        }, {
+            parms: [123456789, 4, '-'],
+            desc: [`123456789,4,'-'`]
+        }]
+    },
+    {
+        base: {
+            name: "formatString",
+            title: "格式化字符串",
+            desc: "将字符串进行分割",
+            parmInfo: "(string, cnt =3, split = ',')"
+        },
+        demo: [{
+            parms: ["absdfsfsdfasdfassad"],
+            desc: [`"absdfsfsdfasdfassad"`]
+        }, {
+            parms: ["absdfsfsdfasdfassad", 4, "-"],
+            desc: [`"absdfsfsdfasdfassad", 4, "-"`]
+        }]
     }
 ]
 const docData = {

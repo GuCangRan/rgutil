@@ -124,6 +124,25 @@ export const isObject = v => (v !== null && typeof v === 'object');
 export const isFunction = v => ['[object Function]', '[object GeneratorFunction]', '[object AsyncFunction]', '[object Promise]'].includes(Object.prototype.toString.call(v));
 
 /**
+ * 是否是微信
+ * @param {*} value 
+ */
+export const isWeChat = value => /^[a-zA-Z][-_a-zA-Z0-9]{5,19}$/g.test(value);
+
+/**
+ * 验证中文姓名
+ * @param {string} value 
+ */
+export const isChineseName = value => /^(?:[\u4e00-\u9fa5·]{2,16})$/g.test(value);
+
+
+/**
+ * 验证英文姓名
+ *@param { string } value
+ */
+export const isEnglishName = value => /(^[a-zA-Z]{1}[a-zA-Z\s]{0,20}[a-zA-Z]{1}$)/g.test(value);
+
+/**
  * 银行卡号码校验（luhn算法）
  * 测试此算法有问题,可以参考学习下此算法
  * @param {*} num 

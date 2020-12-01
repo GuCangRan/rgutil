@@ -42,7 +42,9 @@
           class="doc-desc"
         >
           <div class="doc-desc-name">{{ item.name }} {{ item.parmInfo }}</div>
-          <div>{{ item.desc }}</div>
+          <div>
+            <pre class="pre-desc">{{ item.desc }}</pre>
+          </div>
           <!-- 自测试函数处理 -->
           <div class="test-demo" v-if="item.showDemo || item.showDemo != false">
             <div>
@@ -96,7 +98,7 @@
         </div>
       </div>
     </div>
-    <div class="top-title" v-if="rightTop > 10" @click="goTop">
+    <div class="top-title" v-if="rightTop" @click="goTop">
       <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="48" height="48" fill="white" fill-opacity="0.01" />
         <path
@@ -134,6 +136,7 @@ export default {
     let myDoc = docData();
     let docTree = myDoc.docTree;
     let docMapDemo = myDoc.docMapDemo;
+
     //console.log(docTree);
     const coneDocTree = JSON.parse(JSON.stringify(docTree));
     const search = ref("");
@@ -158,6 +161,7 @@ export default {
       return function (funcName) {
         let parms = docMapDemo.get(funcName);
         if (!parms) return [];
+        //console.log("parms", parms);
         return parms;
       };
     });
@@ -182,6 +186,7 @@ export default {
 
           //常规对象的执行测试样例
           const ret = $R[funcName].apply($R, [demoValue]);
+          //const ret = $R[funcName](...[demoValue]);
           return `$R.${funcName}(${toString(demoValue)})  //${toString(ret)}`;
         } catch (error) {
           //console.error(error);
@@ -227,15 +232,17 @@ export default {
       }
     );
 
-    let rightTop = ref(0);
+    let rightTop = ref(false);
     onMounted(() => {
       document.addEventListener(
         "scroll",
         () => {
           try {
-            rightTop.value = document.getElementsByClassName(
-              "doc-container"
-            )[0].scrollTop;
+            let Top = document.getElementsByClassName("doc-container")[0]
+              .scrollTop;
+
+            if (Top > 10) rightTop.value = true;
+            else rightTop.value = false;
           } catch (error) {}
         },
         true
@@ -290,6 +297,9 @@ function toString(val) {
     // border: 1px solid green;
     overflow: auto;
   }
+}
+.pre-desc {
+  font-size: 18px;
 }
 
 .search-wrapper {

@@ -1,8 +1,43 @@
 /**
- * 日期雷函数
- * @param {*} date 
- * @param {*} otherDate 
+ * 日期函数
  */
+
+/**
+ * 获取格式化日期
+ * @param {*} valueFormat 
+ * @param {Date} dateTime 
+ */
+export const dateFormat = (valueFormat, dateTime = new Date()) => {
+
+    let dt = new Date(dateTime.getTime()); //重置日期对象,不改变传入日期对象
+    //let dtNow = new Date(+new Date() + 8 * 3600 * 1000).toISOString().split(/[^0-9]/).slice(0, -1);
+    dt.setHours(dt.getHours() + 8); //增加八个小时,否则会差8个小时时区
+
+    let dtNow = dt.toISOString().split(/[^0-9]/).slice(0, -1);
+    let [y4, M2, d2, H2, m2, s2, f3] = dtNow;
+    let dateObj = {
+        "yyyy": y4,
+        "yyy": y4.substring(1, 4),
+        "yy": y4.substring(2, 4),
+        "MM": M2,
+        "M": parseInt(M2),
+        "dd": d2,
+        "d": parseInt(d2),
+        "HH": H2,
+        "H": parseInt(H2),
+        "mm": m2,
+        "m": parseInt(m2),
+        "ss": s2,
+        "s": parseInt(s2),
+        "fff": f3,
+        "ff": parseInt(f3),
+        "f": parseInt(f3)
+    }
+    return valueFormat.replace(/y{2,4}|M{1,2}|d{1,2}|H{1,2}|h{1,2}|m{1,2}|s{1,2}|f{1,3}/g, (key) => {
+        return dateObj[key];
+    })
+
+}
 
 /**
  * 计算两个日期之间的差异天数
