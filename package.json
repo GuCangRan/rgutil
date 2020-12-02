@@ -1,6 +1,6 @@
 {
   "name": "rgutil",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "$R是基于ES6的JavaScript函数库",
   "main": "index.js",
   "utilName": "$R",
@@ -12,7 +12,8 @@
     "pro:build": "rimraf dist && cross-env NODE_ENV=production rollup -c ",
     "watch": "rollup -c -w",
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "build:all": "vite build && npm run pro:build"
   },
   "dependencies": {
     "vue": "^3.0.2",

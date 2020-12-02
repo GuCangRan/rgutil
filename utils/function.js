@@ -67,3 +67,39 @@ export const formatString = (val, cnt = 3, split = ',') => {
     let reg = new RegExp(`\\B(?=(\\w{${cnt}})+(?!\\w))`, "g")
     return val.replace(reg, split);
 }
+
+/**
+ * 节流
+ * 节流操作使回调函数在每隔一段时间定期执行一次，时间间隔内再触发，不会重新执行。
+ * @param {*} func 
+ * @param {*} timerNumber 
+ */
+export const throttle = (func, wait = 100) => {
+    let timer = false;
+    return (...args) => {
+        if (timer) {
+            return;
+        }
+        timer = true;
+        timer = setTimeout(() => {
+            func(...args)
+            timer = false;
+        }, wait)
+    }
+}
+
+/**
+ * 防抖
+ * 短时间内多次触发一个函数,只执行最后一次,或在开始时执行
+ * @param {*} fn 
+ * @param {*} delay 
+ */
+export const debounce = (fn, delay) => {
+    let timer = null;
+    return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            fn(...args);
+        }, delay);
+    }
+}

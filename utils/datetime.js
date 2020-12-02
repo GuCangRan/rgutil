@@ -8,13 +8,10 @@
  * @param {Date} dateTime 
  */
 export const dateFormat = (valueFormat, dateTime = new Date()) => {
-
     let dt = new Date(dateTime.getTime()); //重置日期对象,不改变传入日期对象
     //let dtNow = new Date(+new Date() + 8 * 3600 * 1000).toISOString().split(/[^0-9]/).slice(0, -1);
     dt.setHours(dt.getHours() + 8); //增加八个小时,否则会差8个小时时区
-
-    let dtNow = dt.toISOString().split(/[^0-9]/).slice(0, -1);
-    let [y4, M2, d2, H2, m2, s2, f3] = dtNow;
+    let [y4, M2, d2, H2, m2, s2, f3] = dt.toISOString().split(/[^0-9]/).slice(0, -1);
     let dateObj = {
         "yyyy": y4,
         "yyy": y4.substring(1, 4),
@@ -58,3 +55,22 @@ export const monthDiff = (startDate, endDate) => Math.max(0, (endDate.getFullYea
  * @param {*} date 2
  */
 export const dayOfYear = date => Math.floor((date - new Date(date.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+
+/**
+ * 获取某年某月的天数
+ * @param {*} year 
+ * @param {*} month 
+ */
+export const daysInMonth = (year, month) => new Date(year, month, 0).getDate();
+
+/**
+ * 获取指定日期的周几-英文
+ * @param {*} date 
+ */
+export const weekDayEnglish = date => ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][date.getDay()];
+
+/**
+ * 获取指定日期的周几-汉语
+ * @param {*} date 
+ */
+export const weekDayChinese = date => ['周日', '周一', '周二', '周三', '周四', '周五', '周六'][date.getDay()];

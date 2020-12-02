@@ -53,6 +53,51 @@ const children = [{
             }
 
         ]
+    },
+    {
+        base: {
+            name: "daysInMonth",
+            title: "某年某月的天数",
+            desc: `获取某年某月的天数
+            参数:
+            month: 1-12月
+            `,
+            parmInfo: "(year, month)"
+        },
+        demo: [{
+                parms: [2020, 9],
+                desc: ["2020,9"],
+            }
+
+        ]
+    },
+    {
+        base: {
+            name: "weekDayEnglish",
+            title: "英文-指定日期的周几",
+            desc: "获取指定日期的周几,英文",
+            parmInfo: "(date)"
+        },
+        demo: [{
+                parms: [new Date()],
+                desc: ["new Date()"],
+            }
+
+        ]
+    },
+    {
+        base: {
+            name: "weekDayChinese",
+            title: "汉语-指定日期的周几",
+            desc: "获取指定日期的周几,汉语显示",
+            parmInfo: "(date)"
+        },
+        demo: [{
+                parms: [new Date()],
+                desc: ["new Date()"],
+            }
+
+        ]
     }
 ]
 const docData = {

@@ -96,6 +96,48 @@ const children = [{
             parms: ["absdfsfsdfasdfassad", 4, "-"],
             desc: [`"absdfsfsdfasdfassad", 4, "-"`]
         }]
+    },
+    {
+        base: {
+            name: "throttle",
+            title: "节流",
+            desc: `节流操作使回调函数在每隔一段时间定期执行一次，时间间隔内再触发，不会重新执行。
+            用例:
+            function test(val) {
+                console.log("test throttle" + val);
+            }
+            
+            var myThrottle = throttle(test, 1000);
+
+            myThrottle("测试传参"); //执行
+            myThrottle("测试传参"); //节流时间内不执行
+
+            `,
+            parmInfo: "(func, wait = 100)",
+            showDemo: false
+        },
+        demo: []
+    },
+    {
+        base: {
+            name: "debounce",
+            title: "防抖",
+            desc: `节流操作使回调函数在每隔一段时间定期执行一次，时间间隔内再触发，不会重新执行。
+            用例:
+            function test(val) {
+                console.log("test throttle" + val);
+            }
+            
+            var myDebounce = debounce(test, 1000);
+
+            myDebounce("测试传参"); //防抖未执行
+            myDebounce("测试传参"); //延迟1秒执
+
+            `,
+            parmInfo: "(func, wait = 100)",
+            showDemo: false
+        },
+        demo: []
     }
 ]
 const docData = {
