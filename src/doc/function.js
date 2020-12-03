@@ -138,6 +138,80 @@ const children = [{
             showDemo: false
         },
         demo: []
+    },
+    {
+        base: {
+            name: "urlParam",
+            title: "获取URL参数",
+            desc: `获取URL参数
+            参数说明:
+
+            nullDefault = null: 参数不存在默认返回null,可自定义修改不存在默认参数
+
+            url = window.location.href:默认当前URL,也可以手动传入url http://test.com?a=123&b=234
+
+            `,
+            parmInfo: "(param, nullDefault = null,url = window.location.href)",
+            showDemo: true
+        },
+        demo: [{
+            parms: ["a", null, "http://test.com?a=123&b=234"],
+            desc: [`"a",null,"http://test.com?a=123&b=234"`]
+        }, {
+            parms: ["c", "测试空", "http://test.com?a=123&b=234"],
+            desc: [`"c","测试空","http://test.com?a=123&b=234"`]
+        }, {
+            parms: ["c"],
+            desc: [`"c"`]
+        }]
+    },
+    {
+        base: {
+            name: "randomNum",
+            title: "获取随机数",
+            desc: "获取随机数",
+            parmInfo: "(min, max)"
+        },
+        demo: [{
+            parms: [1, 5],
+            desc: [`1,5`]
+        }]
+    },
+    {
+        base: {
+            name: "capitalize",
+            title: "首字母大写",
+            desc: "首字母大写",
+            parmInfo: "(string)"
+        },
+        demo: ["hello", "hello moon"]
+    },
+    {
+        base: {
+            name: "capitalizeEveryWord",
+            title: "每个首字母都大写",
+            desc: "每个首字母都大写",
+            parmInfo: "(string)"
+        },
+        demo: ["hello 哈哈 moon", "hello moon"]
+    },
+    {
+        base: {
+            name: "decapitalize",
+            title: "首字母小写",
+            desc: "首字母小写",
+            parmInfo: "(string)"
+        },
+        demo: ["Hello", "Hello Moon"]
+    },
+    {
+        base: {
+            name: "decapitalizeEveryWord",
+            title: "每个首字母都小写",
+            desc: "每个首字母都小写",
+            parmInfo: "(string)"
+        },
+        demo: ["Hello 哈哈 Moon", "Hello Moon"]
     }
 ]
 const docData = {

@@ -74,8 +74,8 @@ const children = [{
     {
         base: {
             name: "weekDayEnglish",
-            title: "英文-指定日期的周几",
-            desc: "获取指定日期的周几,英文",
+            title: "英语-指定日期的周几",
+            desc: "获取指定日期的周几,英语",
             parmInfo: "(date)"
         },
         demo: [{
@@ -97,6 +97,37 @@ const children = [{
                 desc: ["new Date()"],
             }
 
+        ]
+    },
+    {
+        base: {
+            name: "monthNameEnglish",
+            title: "英语-指定日期的几月",
+            desc: "获取指定日期是几月,英语显示",
+            parmInfo: "(date)"
+        },
+        demo: [{
+                parms: [new Date()],
+                desc: ["new Date()"],
+            }
+
+        ]
+    },
+    {
+        base: {
+            name: "monthNameChinese",
+            title: "汉语-指定日期的几月",
+            desc: "获取指定日期是几月,汉语显示",
+            parmInfo: "(date, isNum = true)"
+        },
+        demo: [{
+                parms: [new Date()],
+                desc: ["new Date()"],
+            },
+            {
+                parms: [new Date(), false],
+                desc: ["new Date(),false"],
+            }
         ]
     }
 ]

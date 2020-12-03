@@ -103,3 +103,47 @@ export const debounce = (fn, delay) => {
         }, delay);
     }
 }
+
+/**
+ * 获取URL参数
+ * @param {*} param 
+ * @param {*} url 
+ * @param {*} nullDefault 
+ */
+export const urlParam = (param, nullDefault = null, url = window.location.href) => {
+    let p = new URLSearchParams(new URL(url).search).get(param);
+    return p ? p : nullDefault;
+}
+
+/**
+ * 获取随机数
+ * @param {*} min 
+ * @param {*} max 
+ */
+export const randomNum = (min = 0, max = 0) => {
+    return parseInt(Math.random() * (max - min + 1) + min, 10);
+}
+
+/**
+ * 首字母大写
+ * @param {*} param0 
+ */
+export const capitalize = ([first, ...rest]) => first.toUpperCase() + rest.join('');
+
+/**
+ * 每个首字母都大写
+ * @param {*} str 
+ */
+export const capitalizeEveryWord = str => str.replace(/\b[a-z]/g, char => char.toUpperCase());
+
+/**
+ * 首字母小写
+ * @param {*} param0 
+ */
+export const decapitalize = ([first, ...rest]) => first.toLowerCase() + rest.join('')
+
+/**
+ * 每个首字母都小写
+ * @param {*} str 
+ */
+export const decapitalizeEveryWord = str => str.replace(/\b[A-Z]/g, char => char.toLowerCase());

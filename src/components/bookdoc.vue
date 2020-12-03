@@ -47,7 +47,17 @@
           </div>
           <!-- 自测试函数处理 -->
           <div class="test-demo" v-if="item.showDemo || item.showDemo != false">
-            <div>
+            <div v-if="item.testmode && item.testmode == 'button'">
+              武德至上 ：
+              <input
+                type="text"
+                v-model="item.testValue"
+                class="search-input"
+                placeholder=" 输入函数中实参即可，多个参数英文逗号隔开"
+              />
+              <button @click="inputResult(item)">执行测试</button>
+            </div>
+            <div v-else>
               武德至上 ：
               <input
                 type="text"
@@ -286,7 +296,7 @@ function toString(val) {
 .doc-main {
   height: 100%;
   display: grid;
-  grid-template-columns: 360px 1fr;
+  grid-template-columns: 390px 1fr;
 
   .doc-nav {
     // border: 1px solid rebeccapurple;
@@ -343,7 +353,7 @@ function toString(val) {
   padding: 4px 15px;
   margin: 3px 0;
   display: grid;
-  grid-template-columns: 160px 1fr;
+  grid-template-columns: 180px 1fr;
   cursor: Pointer;
 
   & div {

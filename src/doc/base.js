@@ -306,16 +306,24 @@ const children = [{
             ["lily"],
             ["shily 杨"]
         ]
+    },
+    {
+        base: {
+            name: "isSubnetMask",
+            title: "是否子网掩码",
+            desc: "验证子网掩码",
+            parmInfo: "(string)"
+        },
+        demo: [{
+                parms: ["255.255.255.0"],
+                desc: [`"255.255.255.0"`],
+            },
+            {
+                parms: ["257.255.255.0"],
+                desc: [`"257.255.255.0"`],
+            }
+        ]
     }
-    // {
-    //     base: {
-    //         name: "isLuhnCheck",
-    //         title: "是否银行卡",
-    //         desc: "银行卡号码校验（luhn算法）",
-    //         parmInfo: "(value)"
-    //     },
-    //     demo: ["4485275742308327"]
-    // }
 ];
 
 const docData = {

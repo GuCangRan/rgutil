@@ -143,17 +143,7 @@ export const isChineseName = value => /^(?:[\u4e00-\u9fa5·]{2,16})$/g.test(valu
 export const isEnglishName = value => /(^[a-zA-Z]{1}[a-zA-Z\s]{0,20}[a-zA-Z]{1}$)/g.test(value);
 
 /**
- * 银行卡号码校验（luhn算法）
- * 测试此算法有问题,可以参考学习下此算法
- * @param {*} num 
+ * 验证子网掩码
+ * @param {*} value 
  */
-// const isLuhnCheck = num => {
-//     let arr = (num + '')
-//         .split('')
-//         .reverse()
-//         .map(x => parseInt(x));
-//     let lastDigit = arr.splice(0, 1)[0];
-//     let sum = arr.reduce((acc, val, i) => (i % 2 !== 0 ? acc + val : acc + ((val * 2) % 9) || 9), 0);
-//     sum += lastDigit;
-//     return sum % 10 === 0;
-// };
+export const isSubnetMask = value => /^(?:\d{1,2}|1\d\d|2[0-4]\d|25[0-5])(?:\.(?:\d{1,2}|1\d\d|2[0-4]\d|25[0-5])){3}$/g.test(value);

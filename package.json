@@ -1,6 +1,6 @@
 {
   "name": "rgutil",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "$R是基于ES6的JavaScript函数库",
   "main": "index.js",
   "utilName": "$R",
@@ -16,8 +16,8 @@
     "build:all": "vite build && npm run pro:build"
   },
   "dependencies": {
-    "vue": "^3.0.2",
-    "prismjs": "^1.22.0"
+    "prismjs": "^1.22.0",
+    "vue": "^3.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
@@ -30,7 +30,6 @@
     "babel-plugin-annotate-pure-calls": "^0.4.0",
     "babel-plugin-import-export-rename": "^1.0.1",
     "cross-env": "^7.0.2",
-    "prismjs": "^1.22.0",
     "rimraf": "^3.0.2",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
@@ -39,8 +38,9 @@
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-uglify": "^6.0.4",
     "rollup-watch": "^4.3.1",
-    "vite": "^1.0.0-rc.9"
-  }, 
+    "sass": "^1.29.0",
+    "vite": "^1.0.0-rc.13"
+  },
   "keywords": [
     "ES6函数库"
   ],

@@ -74,3 +74,21 @@ export const weekDayEnglish = date => ['Sunday', 'Monday', 'Tuesday', 'Wednesday
  * @param {*} date 
  */
 export const weekDayChinese = date => ['周日', '周一', '周二', '周三', '周四', '周五', '周六'][date.getDay()];
+
+
+/**
+ * 获取指定日期是几月-英文
+ * @param {*} date 
+ */
+export const monthNameEnglish = date => ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', ' November', 'December'][date.getMonth()];
+
+/**
+ * 获取指定日期是几月-汉语
+ * @param {*} date 
+ * @param {*} isNum 
+ */
+export const monthNameChinese = (date, isNum = true) => {
+    return isNum ?
+        ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'][date.getMonth()] :
+        ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'][date.getMonth()];
+}
