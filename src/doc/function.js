@@ -179,6 +179,28 @@ const children = [{
     },
     {
         base: {
+            name: "randomCode",
+            title: "获取随机码",
+            desc: "获取指定位数的随机码（数字+字母（大写））,默认4位",
+            parmInfo: "(codeLength = 4)"
+        },
+        demo: [4, 6]
+    },
+    {
+        base: {
+            name: "randomIP",
+            title: "生成随机ip",
+            desc: "生成随机ip",
+            parmInfo: "()",
+            showDemo: false
+        },
+
+        demo: [
+            ""
+        ]
+    },
+    {
+        base: {
             name: "capitalize",
             title: "首字母大写",
             desc: "首字母大写",
@@ -212,6 +234,35 @@ const children = [{
             parmInfo: "(string)"
         },
         demo: ["Hello 哈哈 Moon", "Hello Moon"]
+    },
+    {
+        base: {
+            name: "base64Encode",
+            title: "base64编码",
+            desc: "base64编码",
+            parmInfo: "(string)"
+        },
+        demo: ["Hello Moon"]
+    },
+    {
+        base: {
+            name: "base64Decode",
+            title: "base64解码",
+            desc: "base64解码",
+            parmInfo: "(string)"
+        },
+        demo: ["SGVsbG8gTW9vbg=="]
+    },
+    {
+        base: {
+            name: "getUUID",
+            title: "获取uuid",
+            desc: "获取uuid",
+            parmInfo: "(spit = '-')"
+        },
+        demo: [
+            "-", "(*)"
+        ]
     }
 ]
 const docData = {

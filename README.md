@@ -66,5 +66,3 @@ import { isNumber } from "rgutil";
 
 # 给作者一点氧气，缓解心脏和发型，感谢有您的支持和鼓励
 
-![weixin](./src/assets/weixin.png)
-![zhifubao](./src/assets/zhifubao.png)

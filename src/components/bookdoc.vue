@@ -5,17 +5,17 @@
         <input
           type="text"
           v-model="search"
-          placeholder="  找找看 API"
+          :placeholder="verison"
           class="search-input serarch-position"
         />
       </div>
 
       <div v-for="(group, index) in listDoc" :key="index">
         <div
+          v-if="group.children.length > 0"
           @click="group.expand = !group.expand"
           class="doc-title"
           :style="index == 0 ? 'margin-top:40px' : ''"
-          v-show="group.children.length > 0"
         >
           {{ group.label }}
         </div>
@@ -143,6 +143,8 @@ export default {
     tobottom: Number,
   },
   setup(props) {
+    const verison = ref("  找找看 API " + $R.version);
+
     let myDoc = docData();
     let docTree = myDoc.docTree;
     let docMapDemo = myDoc.docMapDemo;
@@ -274,6 +276,7 @@ export default {
       tobottom,
       rightTop,
       goTop,
+      verison,
     };
   },
 };
@@ -288,7 +291,11 @@ function toString(val) {
     ? "null"
     : typeof val === "object"
     ? JSON.stringify(val, null)
-    : String(val);
+    : typeof val === "number"
+    ? String(val)
+    : val == ""
+    ? String(val)
+    : '"' + String(val) + '"';
   //? JSON.stringify(val, null, 2)
 }
 </script>
@@ -328,8 +335,8 @@ function toString(val) {
 .serarch-position {
   top: 45px;
   position: fixed;
-  left: 5px;
-  width: 330px;
+  left: 15px;
+  width: 360px;
 }
 
 .search-input:focus {

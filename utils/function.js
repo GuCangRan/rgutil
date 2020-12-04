@@ -112,7 +112,7 @@ export const debounce = (fn, delay) => {
  */
 export const urlParam = (param, nullDefault = null, url = window.location.href) => {
     let p = new URLSearchParams(new URL(url).search).get(param);
-    return p ? p : nullDefault;
+    return p || nullDefault;
 }
 
 /**
@@ -123,6 +123,26 @@ export const urlParam = (param, nullDefault = null, url = window.location.href) 
 export const randomNum = (min = 0, max = 0) => {
     return parseInt(Math.random() * (max - min + 1) + min, 10);
 }
+
+/**
+ * 获取指定位数的随机码（数字+字母（大写））
+ * @param {*} codeLength 
+ */
+export const randomCode = (codeLength = 4) => {
+    let code = ''
+    let randomCode = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+    while (codeLength--) {
+        code += randomCode[randomNum(0, randomCode.length)]
+    }
+    return code
+}
+
+/**
+ * 生成随机ip
+ */
+export const randomIP = () => Array(4).fill(0).map((_, i) => Math.floor(Math.random() * 255) + (i === 0 ? 1 : 0)).join('.');
+
+
 
 /**
  * 首字母大写
@@ -147,3 +167,122 @@ export const decapitalize = ([first, ...rest]) => first.toLowerCase() + rest.joi
  * @param {*} str 
  */
 export const decapitalizeEveryWord = str => str.replace(/\b[A-Z]/g, char => char.toLowerCase());
+
+
+const Base64 = {
+    _keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
+    encode: function (e) {
+        e = String(e);
+        let t = "";
+        let n, r, i, s, o, u, a;
+        let f = 0;
+        e = Base64._utf8_encode(e);
+        while (f < e.length) {
+            n = e.charCodeAt(f++);
+            r = e.charCodeAt(f++);
+            i = e.charCodeAt(f++);
+            s = n >> 2;
+            o = (n & 3) << 4 | r >> 4;
+            u = (r & 15) << 2 | i >> 6;
+            a = i & 63;
+            if (isNaN(r)) {
+                u = a = 64
+            } else if (isNaN(i)) {
+                a = 64
+            }
+            t = t + Base64._keyStr.charAt(s) + Base64._keyStr.charAt(o) + Base64._keyStr.charAt(u) + Base64._keyStr.charAt(a)
+        }
+        return t
+    },
+    decode: function (e) {
+        let t = "";
+        let n, r, i;
+        let s, o, u, a;
+        let f = 0;
+        e = e.replace(/[^A-Za-z0-9+/=]/g, "");
+        while (f < e.length) {
+            s = Base64._keyStr.indexOf(e.charAt(f++));
+            o = Base64._keyStr.indexOf(e.charAt(f++));
+            u = Base64._keyStr.indexOf(e.charAt(f++));
+            a = Base64._keyStr.indexOf(e.charAt(f++));
+            n = s << 2 | o >> 4;
+            r = (o & 15) << 4 | u >> 2;
+            i = (u & 3) << 6 | a;
+            t = t + String.fromCharCode(n);
+            if (u != 64) {
+                t = t + String.fromCharCode(r)
+            }
+            if (a != 64) {
+                t = t + String.fromCharCode(i)
+            }
+        }
+        t = Base64._utf8_decode(t);
+        return t
+    },
+    _utf8_encode: function (e) {
+        e = e.replace(/rn/g, "n");
+        let t = "";
+        for (let n = 0; n < e.length; n++) {
+            let r = e.charCodeAt(n);
+            if (r < 128) {
+                t += String.fromCharCode(r)
+            } else if (r > 127 && r < 2048) {
+                t += String.fromCharCode(r >> 6 | 192);
+                t += String.fromCharCode(r & 63 | 128)
+            } else {
+                t += String.fromCharCode(r >> 12 | 224);
+                t += String.fromCharCode(r >> 6 & 63 | 128);
+                t += String.fromCharCode(r & 63 | 128)
+            }
+        }
+        return t
+    },
+    _utf8_decode: function (e) {
+        let t = "";
+        let n = 0;
+        let r = 0,
+            c2 = 0;
+        while (n < e.length) {
+            r = e.charCodeAt(n);
+            if (r < 128) {
+                t += String.fromCharCode(r);
+                n++
+            } else if (r > 191 && r < 224) {
+                c2 = e.charCodeAt(n + 1);
+                t += String.fromCharCode((r & 31) << 6 | c2 & 63);
+                n += 2
+            } else {
+                c2 = e.charCodeAt(n + 1);
+                c3 = e.charCodeAt(n + 2);
+                t += String.fromCharCode((r & 15) << 12 | (c2 & 63) << 6 | c3 & 63);
+                n += 3
+            }
+        }
+        return t
+    }
+};
+
+/**
+ * base64编码
+ */
+export const base64Encode = Base64.encode;
+/**
+ * base64解码
+ */
+export const base64Decode = Base64.decode;
+
+/**
+ * 获取uuid
+ * @param {*} spit  默认替换指定符号
+ */
+export const getUUID = (spit = "-") => {
+    let s = [];
+    let hexDigits = "0123456789abcdef";
+    for (let i = 0; i < 36; i++) {
+        s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
+    }
+    s[14] = "4"; // bits 12-15 of the time_hi_and_version field to 0010
+    s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1); // bits 6-7 of the clock_seq_hi_and_reserved to 01
+    s[8] = s[13] = s[18] = s[23] = spit;
+    return s.join("");
+}

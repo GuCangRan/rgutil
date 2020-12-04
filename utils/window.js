@@ -75,35 +75,26 @@ export const getLocalStorage = (key) => {
  * @param {*} value 
  * @param {*} expireHours 过期时间 默认24小时
  */
-// export const setCookie = (key, value, expireHours = 24) => {
-//     let exdate = new Date();
-//     exdate.setTime(exdate.getTime() + expireHours);
-//     //document.cookie = `${key}=${escape(value)};expires=${exdate.toGMTString()}`;
-//     document.cookie = key + "=" + escape(value) +
-//         (expireHours == null ? "" : ";expires=" + exdate.toGMTString());
-//     return true;
-// }
+export const setCookie = (key, value, expireHours = 24) => {
+    let path = "/";
+    let date = Date.now() + expireHours * 24 * 60 * 60 * 1000; // cookie过期时间
+    date = new Date(date).toUTCString();
+    document.cookie = key + "=" + encodeURIComponent(value) + ((!expireHours) ? "" : ("; expires=" + date)) + ";path=" + path + ";";
+    return true;
+}
 
 /**
  * 获取cookie
  * @param {*} key 
  */
-// export const getCookie = (key) => {
-//     let reg = new RegExp("(^| )" + key + "=([^;]*)(;|$)");
-//     let arr = document.cookie.match(reg);
-//     return arr ? arr[2] : null;
-// }
+export const getCookie = (key) => {
+    let reg = new RegExp("(^| )" + key + "=([^;]*)(;|$)");
+    let arr = document.cookie.match(reg);
+    return arr ? arr[2] : null;
+}
 
 /**
  * 删除cookie
  * @param {*} key 
  */
-// export const delCookie = (key) => {
-//     let exp = new Date();
-//     exp.setTime(exp.getTime() - 1);
-//     let cval = getCookie(name);
-//     if (cval != null) {
-//         document.cookie = key + "=" + cval + ";expires=" + exp.toGMTString();
-//     }
-//     return true;
-// }
+export const delCookie = (key) => getCookie(key) ? setCookie(key, "", -1) : false;

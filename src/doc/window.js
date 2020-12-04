@@ -61,36 +61,36 @@ const children = [{
         },
         demo: []
     },
-    // {
-    //     base: {
-    //         name: "setCookie",
-    //         title: "创建cookie",
-    //         desc: "创建cookie 默认,24小时",
-    //         parmInfo: "(key, value, expireHours = 24)",
-    //         testmode: "button"
-    //     },
-    //     demo: []
-    // },
-    // {
-    //     base: {
-    //         name: "getCookie",
-    //         title: "读取cookie",
-    //         desc: "读取cookie",
-    //         parmInfo: "(key)",
-    //         testmode: "button"
-    //     },
-    //     demo: []
-    // },
-    // {
-    //     base: {
-    //         name: "delCookie",
-    //         title: "删除cookie",
-    //         desc: "删除cookie",
-    //         parmInfo: "(key)",
-    //         testmode: "button"
-    //     },
-    //     demo: []
-    // }
+    {
+        base: {
+            name: "setCookie",
+            title: "创建cookie",
+            desc: "创建cookie 默认,24小时",
+            parmInfo: "(key, value, expireHours = 24)",
+            testmode: "button"
+        },
+        demo: []
+    },
+    {
+        base: {
+            name: "getCookie",
+            title: "读取cookie",
+            desc: "读取cookie",
+            parmInfo: "(key)",
+            testmode: "button"
+        },
+        demo: []
+    },
+    {
+        base: {
+            name: "delCookie",
+            title: "删除cookie",
+            desc: "删除cookie",
+            parmInfo: "(key)",
+            testmode: "button"
+        },
+        demo: []
+    }
 ]
 
 const docData = {

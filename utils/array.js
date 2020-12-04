@@ -31,9 +31,6 @@ export const arrCountOcc = (arr, value) => arr.reduce((a, v) => v === value ? a 
  * @param {*} arr 
  */
 export const arrDeepFlatten = (arr, depth = Infinity) => arr.flat(depth);
-//export const arrDeepFlatten = arr => [].concat(...arr.map(v => Array.isArray(v) ? arrDeepFlatten(v) : v));
-//二维拼接,不能深度
-//export const arrayDeepFlat = arr => arr.reduce((a, v) => a.concat(v), []);
 
 /**
  * 对比两个数组之间的差异,返回数组
