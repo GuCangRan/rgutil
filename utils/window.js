@@ -64,9 +64,7 @@ export const setLocalStorage = (key, value) => {
  * 读取localStorage存储值
  * @param {String} key  属性
  */
-export const getLocalStorage = (key) => {
-    return localStorage.getItem(key)
-};
+export const getLocalStorage = (key) => localStorage.getItem(key);
 
 
 /**
@@ -77,7 +75,7 @@ export const getLocalStorage = (key) => {
  */
 export const setCookie = (key, value, expireHours = 24) => {
     let path = "/";
-    let date = Date.now() + expireHours * 24 * 60 * 60 * 1000; // cookie过期时间
+    let date = Date.now() + expireHours * 60 * 60 * 1000; // cookie过期时间
     date = new Date(date).toUTCString();
     document.cookie = key + "=" + encodeURIComponent(value) + ((!expireHours) ? "" : ("; expires=" + date)) + ";path=" + path + ";";
     return true;

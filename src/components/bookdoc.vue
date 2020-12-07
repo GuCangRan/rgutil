@@ -289,7 +289,9 @@ function toString(val) {
     ? "undefined"
     : val === null
     ? "null"
-    : typeof val === "object"
+    : // : val instanceof RegExp
+    // ? val
+    typeof val === "object"
     ? JSON.stringify(val, null)
     : typeof val === "number"
     ? String(val)

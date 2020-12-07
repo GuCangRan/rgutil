@@ -1,5 +1,17 @@
 const children = [{
         base: {
+            name: "objType",
+            title: "获取对象类型",
+            desc: "获取对象类型",
+            parmInfo: "(object)"
+        },
+        demo: [
+            [], {},
+            2, "abc"
+        ]
+    },
+    {
+        base: {
             name: "byteSize",
             title: "获取字节",
             desc: "获取字节长度",
@@ -122,7 +134,7 @@ const children = [{
         base: {
             name: "debounce",
             title: "防抖",
-            desc: `节流操作使回调函数在每隔一段时间定期执行一次，时间间隔内再触发，不会重新执行。
+            desc: `短时间内多次触发一个函数,只执行最后一次,或在开始时执行
             用例:
             function test(val) {
                 console.log("test throttle" + val);
@@ -237,6 +249,43 @@ const children = [{
     },
     {
         base: {
+            name: "camelCase",
+            title: "转为驼峰命名",
+            desc: "转为驼峰命名,以下划线和中间分隔先进行转换处理",
+            parmInfo: "(string)"
+        },
+        demo: ["my-name-desc", "Hello-Ni_Hao"]
+    },
+    {
+        base: {
+            name: "formatPhone",
+            title: "格式化电话号码",
+            desc: "电话保留前三位,后四位,中间默认变为*号",
+            parmInfo: "(phone, split = '****')"
+        },
+        demo: [{
+                parms: ["18312349876"],
+                desc: [`"18312349876"`]
+            },
+            {
+                parms: ["18312349876", "^^^^"],
+                desc: [`"18312349876","^^^^"`]
+            }
+        ]
+    },
+    {
+        base: {
+            name: "bytesToSize",
+            title: "比特单位转换",
+            desc: `比特单位转换
+    单位:B, KB, MB, GB, TB, PB, EB, ZB, YB
+            `,
+            parmInfo: "(bytes)"
+        },
+        demo: [0, 15, 2323, 5678999]
+    },
+    {
+        base: {
             name: "base64Encode",
             title: "base64编码",
             desc: "base64编码",
@@ -263,6 +312,29 @@ const children = [{
         demo: [
             "-", "(*)"
         ]
+    },
+    {
+        base: {
+            name: "deepClone",
+            title: "深度克隆对象",
+            desc: `深度克隆对象
+            支持正则克隆对象,当前页面测试正则因JSON.stringify转换正则无法正常显示,无法测试
+            `,
+            parmInfo: "(object)"
+        },
+        demo: [{
+            parms: [{
+                name: "张三",
+                age: 12,
+                hobby: ["打篮球", "吹牛"]
+
+            }],
+            desc: [`{
+                name: "张三",
+                age: 12,
+                hobby: ["打篮球", "吹牛"]
+            }`]
+        }]
     }
 ]
 const docData = {

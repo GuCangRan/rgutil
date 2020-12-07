@@ -1,6 +1,12 @@
 /**通用函数类 */
 
 /**
+ * 类型检测
+ * @param {*} obj 
+ */
+export const objType = (obj) => Object.prototype.toString.call(obj).slice(8, -1);
+
+/**
  * 获取字节
  * @param {*} str 
  */
@@ -120,9 +126,7 @@ export const urlParam = (param, nullDefault = null, url = window.location.href) 
  * @param {*} min 
  * @param {*} max 
  */
-export const randomNum = (min = 0, max = 0) => {
-    return parseInt(Math.random() * (max - min + 1) + min, 10);
-}
+export const randomNum = (min = 0, max = 0) => parseInt(Math.random() * (max - min + 1) + min, 10);
 
 /**
  * 获取指定位数的随机码（数字+字母（大写））
@@ -167,6 +171,45 @@ export const decapitalize = ([first, ...rest]) => first.toLowerCase() + rest.joi
  * @param {*} str 
  */
 export const decapitalizeEveryWord = str => str.replace(/\b[A-Z]/g, char => char.toLowerCase());
+
+/**
+ * 转为驼峰命名,下划线和中间分隔先进行转换处理
+ * @param {*} str 
+ */
+export const camelCase = (str) => {
+    const arr = str
+        .replace(/([A-Z])/g, '-$1')
+        .toLowerCase()
+        .replace(/[_.\- ]+/g, '-')
+        .replace(/(^-)|(-$)/g, '')
+        .split('-');
+
+    //移除第一位
+    let ret = arr[0];
+    arr.shift();
+
+    return ret + arr.map(item => item.replace(/\w/, ($1) => $1.toUpperCase())).join('');
+}
+
+
+/**
+ * 格式化电话号码
+ * @param {*} phone 
+ * @param {*} split 
+ */
+export const formatPhone = (phone, split = "****") => (phone + '').replace(/(\d{3})\d{1,}(\d{4})/, `$1${split}$2`);
+
+/**
+ * 比特单位转换
+ * @param {*} bytes 
+ */
+export const bytesToSize = (bytes) => {
+    if (bytes === 0) return '0 B'
+    var k = 1024;
+    var sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
+    var i = Math.floor(Math.log(bytes) / Math.log(k))
+    return (bytes / Math.pow(k, i)).toPrecision(3) + ' ' + sizes[i]
+}
 
 
 const Base64 = {
@@ -285,4 +328,21 @@ export const getUUID = (spit = "-") => {
     s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1); // bits 6-7 of the clock_seq_hi_and_reserved to 01
     s[8] = s[13] = s[18] = s[23] = spit;
     return s.join("");
+}
+
+/**
+ * 深度克隆对象
+ * @param {*} obj 
+ */
+export const deepClone = (obj) => {
+    if (obj instanceof RegExp) return new RegExp(obj)
+    if (obj == null || typeof obj != 'object') return obj
+
+    let res = Object.prototype.toString.call(obj) === '[object Array]' ? [] : {};
+    for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            res[key] = deepClone(obj[key])
+        }
+    }
+    return res
 }

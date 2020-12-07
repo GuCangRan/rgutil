@@ -38,25 +38,19 @@ export const isArray = obj => Array.isArray(obj);
  * 是否正整数
  * @param {*} val 
  */
-export const isPositiveNum = val => {
-    return /^[1-9]\d*$/.test(val);
-};
+export const isPositiveNum = val => /^[1-9]\d*$/.test(val);
 
 /**
  * 是否负整数
  * @param {*}} val 
  */
-export const isNegativeNum = val => {
-    return /^-[1-9]\d*$/.test(val);
-};
+export const isNegativeNum = val => /^-[1-9]\d*$/.test(val);
 
 /**
  * 匹配整数
  * @param {*} val 
  */
-export const isInteger = val => {
-    return /^(-|\+)?\d+$/.test(val);
-};
+export const isInteger = val => /^(-|\+)?\d+$/.test(val);
 
 /**
  * 用于判断程序运行环境是否在浏览器，这有助于避免在node环境运行前端模块时出错。
