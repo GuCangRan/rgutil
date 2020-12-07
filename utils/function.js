@@ -5,6 +5,12 @@
  * @param {*} obj 
  */
 export const objType = (obj) => Object.prototype.toString.call(obj).slice(8, -1);
+/**
+ * 获取当前对象类型
+ * @param {*} v 
+ */
+//export const getType = v => v === undefined ? 'undefined' : v === null ? 'null' : v.constructor.name.toLowerCase();
+
 
 /**
  * 获取字节
@@ -24,11 +30,6 @@ export const splitLines = str => str.split(/\r?\n/);
  */
 export const removeHTMLTags = str => str.replace(/<[^>]*>/g, '');
 
-/**
- * 获取当前对象类型
- * @param {*} v 
- */
-export const getType = v => v === undefined ? 'undefined' : v === null ? 'null' : v.constructor.name.toLowerCase();
 
 
 /**
@@ -190,6 +191,11 @@ export const camelCase = (str) => {
 
     return ret + arr.map(item => item.replace(/\w/, ($1) => $1.toUpperCase())).join('');
 }
+/**
+ * 驼峰转为连字符
+ * @param {*} str 
+ */
+export const hyphenate = (str) => str.replace(/\B([A-Z])/g, '-$1').toLowerCase()
 
 
 /**

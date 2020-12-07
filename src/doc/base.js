@@ -323,6 +323,42 @@ const children = [{
                 desc: [`"257.255.255.0"`],
             }
         ]
+    },
+    {
+        base: {
+            name: "isPhone",
+            title: "是否手机号码",
+            desc: "是否手机号码.验证大陆",
+            parmInfo: "(string)"
+        },
+        demo: ["18310221234"]
+    },
+    {
+        base: {
+            name: "isEmail",
+            title: "是否邮箱",
+            desc: "是否邮箱",
+            parmInfo: "(string)"
+        },
+        demo: ["123@test.com"]
+    },
+    {
+        base: {
+            name: "isHTMLTag",
+            title: "是否html标签",
+            desc: "是否html标签",
+            parmInfo: "(string)"
+        },
+        demo: ["div"]
+    },
+    {
+        base: {
+            name: "isSvgTag",
+            title: "是否svg标签",
+            desc: "是否svg标签",
+            parmInfo: "(string)"
+        },
+        demo: ["svg"]
     }
 ];
 

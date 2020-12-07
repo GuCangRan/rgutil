@@ -56,17 +56,17 @@ const children = [{
             desc: ["\"<div v-for='(group, index) in listDoc' :key='index'>123</div>\""]
         }]
     },
-    {
-        base: {
-            name: "getType",
-            title: "获取对象类型",
-            desc: "获取当前对象类型",
-            parmInfo: "(any)"
-        },
-        demo: [null, undefined, () => {}, {},
-            []
-        ]
-    },
+    // {
+    //     base: {
+    //         name: "getType",
+    //         title: "获取对象类型",
+    //         desc: "获取当前对象类型",
+    //         parmInfo: "(any)"
+    //     },
+    //     demo: [null, undefined, () => {}, {},
+    //         []
+    //     ]
+    // },
     {
         base: {
             name: "escapeHTML",
@@ -255,6 +255,15 @@ const children = [{
             parmInfo: "(string)"
         },
         demo: ["my-name-desc", "Hello-Ni_Hao"]
+    },
+    {
+        base: {
+            name: "hyphenate",
+            title: "驼峰转为连字符",
+            desc: "驼峰转为连字符,全都为小写",
+            parmInfo: "(string)"
+        },
+        demo: ["myNameZhangSan"]
     },
     {
         base: {

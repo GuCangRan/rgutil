@@ -141,3 +141,50 @@ export const isEnglishName = value => /(^[a-zA-Z]{1}[a-zA-Z\s]{0,20}[a-zA-Z]{1}$
  * @param {*} value 
  */
 export const isSubnetMask = value => /^(?:\d{1,2}|1\d\d|2[0-4]\d|25[0-5])(?:\.(?:\d{1,2}|1\d\d|2[0-4]\d|25[0-5])){3}$/g.test(value);
+
+/**
+ * 是否手机号码
+ * @param {*} val 
+ */
+export const isPhone = (val) => /^1[3456789]\d{9}$/.test(val);
+
+/**
+ * 是否邮箱
+ * @param {*} val 
+ */
+export const isEmail = (val) => /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(val);
+
+/**
+ * 是否html标签
+ * @param {*} str 
+ */
+let cacheHTMLTag = [];
+export const isHTMLTag = (str) => {
+    if (cacheHTMLTag.length == 0) {
+        cacheHTMLTag = `html,body,base,head,link,meta,style,title, 
+        address,article,aside,footer,header,h1,h2,h3,h4,h5,h6,hgroup,nav,section, 
+        div,dd,dl,dt,figcaption,figure,picture,hr,img,li,main,ol,p,pre,ul, 
+        a,b,abbr,bdi,bdo,br,cite,code,data,dfn,em,i,kbd,mark,q,rp,rt,rtc,ruby, 
+        s,samp,small,span,strong,sub,sup,time,u,var,wbr,area,audio,map,track,video, 
+        embed,object,param,source,canvas,script,noscript,del,ins, 
+        caption,col,colgroup,table,thead,tbody,td,th,tr, 
+        button,datalist,fieldset,form,input,label,legend,meter,optgroup,option, 
+        output,progress,select,textarea, 
+        details,dialog,menu,menuitem,summary, 
+        content,element,shadow,template,blockquote,iframe,tfoot`.replace(/\s+/g, '').split(",");
+    }
+    return cacheHTMLTag.includes(str.trim());
+}
+/**
+ * 是否svg标签
+ * @param {*} str 
+ */
+let cacheSvgTag = [];
+export const isSvgTag = (str) => {
+    if (cacheSvgTag.length == 0) {
+        cacheSvgTag = `svg,animate,circle,clippath,cursor,defs,desc,ellipse,filter,font-face, 
+        foreignObject,g,glyph,image,line,marker,mask,missing-glyph,path,pattern, 
+        polygon,polyline,rect,switch,symbol,text,textpath,tspan,use,view`.replace(/\s+/g, '').split(",");
+    }
+    return cacheSvgTag.includes(str.trim());
+}
