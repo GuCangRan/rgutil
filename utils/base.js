@@ -188,3 +188,9 @@ export const isSvgTag = (str) => {
     }
     return cacheSvgTag.includes(str.trim());
 }
+
+/**
+ * 是否日期
+ * @param {*} val 
+ */
+export const isDate = (val) => Object.prototype.toString.call(val) === '[object Date]';;

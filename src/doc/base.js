@@ -359,6 +359,18 @@ const children = [{
             parmInfo: "(string)"
         },
         demo: ["svg"]
+    },
+    {
+        base: {
+            name: "isDate",
+            title: "是否日期",
+            desc: "是否日期",
+            parmInfo: "(val)"
+        },
+        demo: [{
+            parms: [new Date()],
+            desc: [`new Date()`],
+        }]
     }
 ];
 

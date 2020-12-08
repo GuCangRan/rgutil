@@ -1,6 +1,6 @@
 {
   "name": "rgutil",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "$R是基于ES6的JavaScript函数库",
   "main": "index.js",
   "utilName": "$R",
@@ -42,7 +42,9 @@
     "vite": "^1.0.0-rc.13"
   },
   "keywords": [
-    "ES6函数库"
+    "ES6函数库",
+    "vue3",
+    "vite"
   ],
   "author": "GuCangRan",
   "license": "MIT"

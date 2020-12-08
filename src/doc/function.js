@@ -313,6 +313,15 @@ const children = [{
     },
     {
         base: {
+            name: "md5",
+            title: "md5加密",
+            desc: "md5加密",
+            parmInfo: "(string)"
+        },
+        demo: ["qwer123"]
+    },
+    {
+        base: {
             name: "getUUID",
             title: "获取uuid",
             desc: "获取uuid",
@@ -344,6 +353,15 @@ const children = [{
                 hobby: ["打篮球", "吹牛"]
             }`]
         }]
+    },
+    {
+        base: {
+            name: "splitPath",
+            title: "分割路径",
+            desc: `分割路径`,
+            parmInfo: "(path)"
+        },
+        demo: ["D:\\Downloads\\src\\chibang.wav", "/Downloads/src/chibang.wav"]
     }
 ]
 const docData = {

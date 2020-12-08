@@ -342,6 +342,21 @@ const children = [{
                 }
             ]
         ]
+    },
+    {
+        base: {
+            name: "arrTranspose",
+            title: "交换矩阵的行和列",
+            desc: "交换矩阵的行和列",
+            parmInfo: "(array)"
+        },
+        demo: [
+            [
+                [1, 2, 3],
+                [4, 5, 6],
+                [7, 8, 9],
+            ]
+        ]
     }
 ];
 

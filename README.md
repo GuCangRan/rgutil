@@ -11,17 +11,17 @@ github仓库地址: https://github.com/GuCangRan/rgutil
  http://gucangran.gitee.io/rgutil
 
 
-rgutil默认以$R命名开头
+rgutil默认以$R命名开头,您也可根据package.json中utilName改为别的名称进行打包
 ```
 1) $R是基于ES6语法设计的函数库
 2) $R支持按需加载
-3) $R可自行下载源码拷贝自行需要方法,函数尽量保持独立
-4) $支持页面直接引用
+3) $R函数尽量保持独立,让您满足单独可复制自己所需方法
+4) $R支持页面直接引用,立即执行函数方式,umd方式,es6方式引入
 ```
 
 
 # 资源在线下载
-在github源码dist文件夹,可自行下载
+打包脚本文件放在dist文件夹,可自行下载直接使用,或自行编译源码打包
 
 说明: rgutil支持页面直接引用使用,操作如下
 
@@ -49,7 +49,9 @@ rgutil默认以$R命名开头
 # npm下载
 
 执行npm指令
+```javascript
 npm install rgutil
+```
 
 ```javascript
 //函数全部导入

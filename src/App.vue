@@ -28,6 +28,25 @@
           />
         </svg>
       </div>
+      <div @click="goToGitee" style="padding-top: 3px">
+        <svg
+          t="1607325955714"
+          class="icon"
+          viewBox="0 0 1024 1024"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          p-id="562"
+          width="30"
+          height="30"
+        >
+          <title>码云</title>
+          <path
+            d="M512 1024C230.4 1024 0 793.6 0 512S230.4 0 512 0s512 230.4 512 512-230.4 512-512 512z m259.2-569.6H480c-12.8 0-25.6 12.8-25.6 25.6v64c0 12.8 12.8 25.6 25.6 25.6h176c12.8 0 25.6 12.8 25.6 25.6v12.8c0 41.6-35.2 76.8-76.8 76.8h-240c-12.8 0-25.6-12.8-25.6-25.6V416c0-41.6 35.2-76.8 76.8-76.8h355.2c12.8 0 25.6-12.8 25.6-25.6v-64c0-12.8-12.8-25.6-25.6-25.6H416c-105.6 0-188.8 86.4-188.8 188.8V768c0 12.8 12.8 25.6 25.6 25.6h374.4c92.8 0 169.6-76.8 169.6-169.6v-144c0-12.8-12.8-25.6-25.6-25.6z"
+            fill="#000000"
+            p-id="563"
+          ></path>
+        </svg>
+      </div>
       <div @click="goToGithub">
         <svg
           class="header-item"
@@ -63,6 +82,10 @@ export default {
       window.open("https://github.com/GuCangRan/rgutil");
     };
 
+    const goToGitee = () => {
+      window.open("https://gitee.com/gucangran/rgutil");
+    };
+
     const bValue = ref(1);
     const goMoney = () => {
       bValue.value++;
@@ -70,6 +93,7 @@ export default {
 
     return {
       goToGithub,
+      goToGitee,
       goMoney,
       bValue,
     };
@@ -84,7 +108,7 @@ export default {
 }
 header {
   display: grid;
-  grid-template-columns: auto 1fr 30px 100px;
+  grid-template-columns: auto 1fr 30px 30px 100px;
   grid-gap: 15px;
   background: linear-gradient(180deg, #0b8df6, #2196f3), #2196f3;
 

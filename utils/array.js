@@ -165,3 +165,10 @@ export const arrToTree = (items, id = null, link = 'parent_id') =>
         ...item,
         children: arrToTree(items, item.id)
     }));
+
+
+/**
+ * 交换多维数组行和列
+ * @param {*} matrix 
+ */
+export const arrTranspose = matrix => matrix[0].map((col, i) => matrix.map(row => row[i]));
