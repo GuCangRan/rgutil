@@ -117,7 +117,33 @@ const children = [{
         },
         demo: [8, 1.8, -2]
     },
-
+    {
+        base: {
+            name: "isPostiveFloat",
+            title: "是否正浮点数",
+            desc: "是否正浮点数，如果是则返回true",
+            parmInfo: "(val)"
+        },
+        demo: [1.1]
+    },
+    {
+        base: {
+            name: "isNegativeFloat",
+            title: "是否负浮点数",
+            desc: "是否负浮点数，如果是则返回true",
+            parmInfo: "(val)"
+        },
+        demo: [-1.1]
+    },
+    {
+        base: {
+            name: "isFloat",
+            title: "是否浮点数",
+            desc: "是否浮点数，如果是则返回true",
+            parmInfo: "(val)"
+        },
+        demo: [1.1]
+    },
     {
         base: {
             name: "isBrowser",
@@ -370,6 +396,18 @@ const children = [{
         demo: [{
             parms: [new Date()],
             desc: [`new Date()`],
+        }]
+    },
+    {
+        base: {
+            name: "isEmoji",
+            title: "是否emoji字符",
+            desc: "是否emoji字符",
+            parmInfo: "(val)"
+        },
+        demo: [{
+            parms: ["☺"],
+            desc: [`"☺"`],
         }]
     }
 ];

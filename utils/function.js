@@ -199,11 +199,17 @@ export const hyphenate = (str) => str.replace(/\B([A-Z])/g, '-$1').toLowerCase()
 
 
 /**
- * 格式化电话号码
+ * 脱敏电话号码
  * @param {*} phone 
  * @param {*} split 
  */
-export const formatPhone = (phone, split = "****") => (phone + '').replace(/(\d{3})\d{1,}(\d{4})/, `$1${split}$2`);
+export const privacyPhone = (phone, split = "****") => (phone + '').replace(/(\d{3})\d{1,}(\d{4})/, `$1${split}$2`);
+
+/**
+ * 脱敏姓名
+ * @param {*} name 
+ */
+export const privacyName = (name, split = "**") => name.replace(/^(\S)(\S|\s)*$/, `$1${split}`);
 
 /**
  * 比特单位转换
@@ -560,18 +566,38 @@ export const getUUID = (spit = "-") => {
  * 深度克隆对象
  * @param {*} obj 
  */
-export const deepClone = (obj) => {
+export const deepClone = (obj, hash = new WeakMap()) => {
     if (obj instanceof RegExp) return new RegExp(obj)
-    if (obj == null || typeof obj != 'object') return obj
+    if (obj instanceof Date) return new Date(obj)
+    if (obj === null || typeof obj !== 'object') { //如果不是复杂数据类型，直接返回
+        return obj
+    }
+    if (hash.has(obj)) {
+        return hash.get(obj)
+    }
 
-    let res = Object.prototype.toString.call(obj) === '[object Array]' ? [] : {};
+    let t = new obj.constructor()
+    hash.set(obj, t)
     for (let key in obj) {
         if (obj.hasOwnProperty(key)) {
-            res[key] = deepClone(obj[key])
+            t[key] = deepClone(obj[key], hash)
         }
     }
-    return res
+    return t
 }
+//去除之前写法
+// export const deepClone = (obj) => {
+//     if (obj instanceof RegExp) return new RegExp(obj)
+//     if (obj == null || typeof obj != 'object') return obj
+
+//     let res = Object.prototype.toString.call(obj) === '[object Array]' ? [] : {};
+//     for (let key in obj) {
+//         if (obj.hasOwnProperty(key)) {
+//             res[key] = deepClone(obj[key])
+//         }
+//     }
+//     return res
+// }
 
 /**
  * 分割路径
@@ -584,4 +610,39 @@ export const splitPath = (path = "") => {
         name: match[2],
         ext: match[3]
     };
+}
+
+/**
+ * 数字转大写金额
+ * @param {*} n 
+ */
+export const digitUpperCase = (n = 0) => {
+    let fraction = ['角', '分'];
+    let digit = [
+        '零', '壹', '贰', '叁', '肆',
+        '伍', '陆', '柒', '捌', '玖'
+    ];
+    let unit = [
+        ['元', '万', '亿'],
+        ['', '拾', '佰', '仟']
+    ];
+    let head = n < 0 ? '欠' : '';
+    n = Math.abs(n);
+    let s = '';
+    for (var i = 0; i < fraction.length; i++) {
+        s += (digit[Math.floor(n * 10 * Math.pow(10, i)) % 10] + fraction[i]).replace(/零./, '');
+    }
+    s = s || '整';
+    n = Math.floor(n);
+    for (let i = 0; i < unit[0].length && n > 0; i++) {
+        var p = '';
+        for (var j = 0; j < unit[1].length && n > 0; j++) {
+            p = digit[n % 10] + unit[1][j] + p;
+            n = Math.floor(n / 10);
+        }
+        s = p.replace(/(零.)*零$/, '').replace(/^$/, '零') + unit[0][i] + s;
+    }
+    return head + s.replace(/(零.)*零元/, '元')
+        .replace(/(零.)+/g, '零')
+        .replace(/^整$/, '零元整');
 }

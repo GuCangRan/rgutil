@@ -70,9 +70,7 @@ export const arrIntersection = (arr1, arr2) => {
  * @param {*} arr 
  * @param {*} n 
  */
-export const arrNthElement = (arr, n = 0) => {
-    return n >= arr.length ? [] : (n > 0 ? arr.slice(n, n + 1) : arr.slice(n))[0]
-};
+export const arrNthElement = (arr, n = 0) => n >= arr.length ? [] : (n > 0 ? arr.slice(n, n + 1) : arr.slice(n))[0];
 
 /**
  * 求取平均数

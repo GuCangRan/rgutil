@@ -267,9 +267,9 @@ const children = [{
     },
     {
         base: {
-            name: "formatPhone",
-            title: "格式化电话号码",
-            desc: "电话保留前三位,后四位,中间默认变为*号",
+            name: "privacyPhone",
+            title: "脱敏电话号码",
+            desc: "脱敏电话保留前三位,后四位,中间默认变为*号",
             parmInfo: "(phone, split = '****')"
         },
         demo: [{
@@ -279,6 +279,23 @@ const children = [{
             {
                 parms: ["18312349876", "^^^^"],
                 desc: [`"18312349876","^^^^"`]
+            }
+        ]
+    },
+    {
+        base: {
+            name: "privacyName",
+            title: "脱敏姓名",
+            desc: "脱敏姓名保留前一位,其余默认变为*号",
+            parmInfo: "(name, split = '**')"
+        },
+        demo: [{
+                parms: ["张三丰"],
+                desc: [`"张三丰"`]
+            },
+            {
+                parms: ["张三丰", "^^"],
+                desc: [`"张三丰","^^"`]
             }
         ]
     },
@@ -338,7 +355,7 @@ const children = [{
             desc: `深度克隆对象
             支持正则克隆对象,当前页面测试正则因JSON.stringify转换正则无法正常显示,无法测试
             `,
-            parmInfo: "(object)"
+            parmInfo: "(obj, hash = new WeakMap())"
         },
         demo: [{
             parms: [{
@@ -362,6 +379,15 @@ const children = [{
             parmInfo: "(path)"
         },
         demo: ["D:\\Downloads\\src\\chibang.wav", "/Downloads/src/chibang.wav"]
+    },
+    {
+        base: {
+            name: "digitUpperCase",
+            title: "数字转大写金额",
+            desc: `数字转大写金额`,
+            parmInfo: "(number)"
+        },
+        demo: [12345.67, -100]
     }
 ]
 const docData = {

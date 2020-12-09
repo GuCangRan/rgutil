@@ -55,7 +55,9 @@
                 class="search-input"
                 placeholder=" 输入函数中实参即可，多个参数英文逗号隔开"
               />
-              <button @click="inputResult(item)">执行测试</button>
+              <button class="test-button" @click="inputResult(item)">
+                执行测试
+              </button>
             </div>
             <div v-else>
               武德至上 ：
@@ -452,6 +454,24 @@ function toString(val) {
   width: 40px;
   border-radius: 50%;
   background: #dbdbdbc2;
+}
+
+.test-button {
+  margin: 5px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 1;
+  font-size: 14px;
+  padding: 10px 18px;
+  color: #5d5e61;
+  background: #fff;
+  border: 1px solid #cfd1d4;
+  border-radius: 20px;
+  outline: none;
+
+  &:hover {
+    background: #ccc;
+  }
 }
 
 pre[class*="language-"] {

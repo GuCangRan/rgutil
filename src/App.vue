@@ -158,7 +158,7 @@ header {
     position: absolute;
     bottom: 15px;
     padding: 3px 3px;
-    color: #c5d8f1;
+    color: #fff;
     // text-shadow: 0 1px 1px #ffffff4d;
     // box-shadow: 0 0 0 1px #ffffff1a inset, 0 2px 10px #250202c5;
     // border-radius: 5px;

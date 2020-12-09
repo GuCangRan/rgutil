@@ -347,7 +347,8 @@ const children = [{
         base: {
             name: "arrTranspose",
             title: "交换矩阵的行和列",
-            desc: "交换矩阵的行和列",
+            desc: `交换矩阵的行和列
+            注意: 矩阵是指行和列 数量相等哦,我没嘲笑你不懂,主要我怕有不懂的`,
             parmInfo: "(array)"
         },
         demo: [
