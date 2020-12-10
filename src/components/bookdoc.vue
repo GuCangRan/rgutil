@@ -56,7 +56,7 @@
                 placeholder=" 输入函数中实参即可，多个参数英文逗号隔开"
               />
               <button class="test-button" @click="inputResult(item)">
-                执行测试
+                测试走你
               </button>
             </div>
             <div v-else>
@@ -252,9 +252,7 @@ export default {
           try {
             let Top = document.getElementsByClassName("doc-container")[0]
               .scrollTop;
-
-            if (Top > 10) rightTop.value = true;
-            else rightTop.value = false;
+            rightTop.value = Top > 10 ? true : false;
           } catch (error) {}
         },
         true

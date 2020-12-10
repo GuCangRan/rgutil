@@ -27,7 +27,7 @@ const children = [{
                 parms: [
                     ["wu de"]
                 ],
-                desc: ["\"wu de\"]"],
+                desc: ["\"wu de\""],
 
             }
         ]
@@ -201,8 +201,8 @@ const children = [{
     {
         base: {
             name: "randomIP",
-            title: "生成随机ip",
-            desc: "生成随机ip",
+            title: "生成随机ip-v4",
+            desc: "生成随机ip-v4",
             parmInfo: "()",
             showDemo: false
         },

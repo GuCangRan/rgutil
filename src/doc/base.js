@@ -306,7 +306,7 @@ const children = [{
             parmInfo: "(string)"
         },
         demo: [
-            ["abc2232332"]
+            "abc2232332"
         ]
     },
     {
@@ -317,8 +317,8 @@ const children = [{
             parmInfo: "(string)"
         },
         demo: [
-            ["张三"],
-            ["zhang三"]
+            "张三",
+            "zhang三"
         ]
     },
     {
@@ -329,8 +329,8 @@ const children = [{
             parmInfo: "(string)"
         },
         demo: [
-            ["lily"],
-            ["shily 杨"]
+            "lily",
+            "shily 杨"
         ]
     },
     {
@@ -409,7 +409,44 @@ const children = [{
             parms: ["☺"],
             desc: [`"☺"`],
         }]
+    },
+    {
+        base: {
+            name: "isLicensePlate",
+            title: "是否车牌号",
+            desc: "是否车牌号",
+            parmInfo: "(val)"
+        },
+        demo: ["京A2345D"]
+    },
+    {
+        base: {
+            name: "isPwdStrength",
+            title: "是否强密码",
+            desc: "是否强密码，至少6位，包括至少1个大写字母，1个小写字母，1个数字，1个特殊字符",
+            parmInfo: "(val)"
+        },
+        demo: ["U#3p09sd"]
+    },
+    {
+        base: {
+            name: "isIPV4",
+            title: "是否ip-v4",
+            desc: "是否ip-v4",
+            parmInfo: "(val)"
+        },
+        demo: ["127.0.0.1", "234.345.123.3"]
+    },
+    {
+        base: {
+            name: "isMacAddress",
+            title: "是否mac地址",
+            desc: "是否mac地址",
+            parmInfo: "(val)"
+        },
+        demo: ["28-D2-44-A6-05-55", "24:f9:a3:7b:d5:51"]
     }
+    
 ];
 
 const docData = {

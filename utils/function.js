@@ -137,13 +137,13 @@ export const randomCode = (codeLength = 4) => {
     let code = ''
     let randomCode = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
     while (codeLength--) {
-        code += randomCode[randomNum(0, randomCode.length)]
+        code += randomCode[randomNum(0, randomCode.length - 1)]
     }
     return code
 }
 
 /**
- * 生成随机ip
+ * 生成随机ip-v4
  */
 export const randomIP = () => Array(4).fill(0).map((_, i) => Math.floor(Math.random() * 255) + (i === 0 ? 1 : 0)).join('.');
 
@@ -217,9 +217,9 @@ export const privacyName = (name, split = "**") => name.replace(/^(\S)(\S|\s)*$/
  */
 export const bytesToSize = (bytes) => {
     if (bytes === 0) return '0 B'
-    var k = 1024;
-    var sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
-    var i = Math.floor(Math.log(bytes) / Math.log(k))
+    let k = 1024;
+    let sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
+    let i = Math.floor(Math.log(bytes) / Math.log(k))
     return (bytes / Math.pow(k, i)).toPrecision(3) + ' ' + sizes[i]
 }
 
@@ -336,7 +336,7 @@ export const md5 = function (string) {
     }
 
     function md5_AddUnsigned(lX, lY) {
-        var lX4, lY4, lX8, lY8, lResult;
+        let lX4, lY4, lX8, lY8, lResult;
         lX8 = (lX & 0x80000000);
         lY8 = (lY & 0x80000000);
         lX4 = (lX & 0x40000000);
@@ -393,14 +393,14 @@ export const md5 = function (string) {
     };
 
     function md5_ConvertToWordArray(string) {
-        var lWordCount;
-        var lMessageLength = string.length;
-        var lNumberOfWords_temp1 = lMessageLength + 8;
-        var lNumberOfWords_temp2 = (lNumberOfWords_temp1 - (lNumberOfWords_temp1 % 64)) / 64;
-        var lNumberOfWords = (lNumberOfWords_temp2 + 1) * 16;
-        var lWordArray = Array(lNumberOfWords - 1);
-        var lBytePosition = 0;
-        var lByteCount = 0;
+        let lWordCount;
+        let lMessageLength = string.length;
+        let lNumberOfWords_temp1 = lMessageLength + 8;
+        let lNumberOfWords_temp2 = (lNumberOfWords_temp1 - (lNumberOfWords_temp1 % 64)) / 64;
+        let lNumberOfWords = (lNumberOfWords_temp2 + 1) * 16;
+        let lWordArray = Array(lNumberOfWords - 1);
+        let lBytePosition = 0;
+        let lByteCount = 0;
         while (lByteCount < lMessageLength) {
             lWordCount = (lByteCount - (lByteCount % 4)) / 4;
             lBytePosition = (lByteCount % 4) * 8;
@@ -416,7 +416,7 @@ export const md5 = function (string) {
     };
 
     function md5_WordToHex(lValue) {
-        var WordToHexValue = "",
+        let WordToHexValue = "",
             WordToHexValue_temp = "",
             lByte, lCount;
         for (lCount = 0; lCount <= 3; lCount++) {
@@ -429,9 +429,9 @@ export const md5 = function (string) {
 
     function md5_Utf8Encode(string) {
         string = string.replace(/\r\n/g, "\n");
-        var utftext = "";
-        for (var n = 0; n < string.length; n++) {
-            var c = string.charCodeAt(n);
+        let utftext = "";
+        for (let n = 0; n < string.length; n++) {
+            let c = string.charCodeAt(n);
             if (c < 128) {
                 utftext += String.fromCharCode(c);
             } else if ((c > 127) && (c < 2048)) {
@@ -445,21 +445,21 @@ export const md5 = function (string) {
         }
         return utftext;
     };
-    var x = Array();
-    var k, AA, BB, CC, DD, a, b, c, d;
-    var S11 = 7,
+    let x = Array();
+    let k, AA, BB, CC, DD, a, b, c, d;
+    let S11 = 7,
         S12 = 12,
         S13 = 17,
         S14 = 22;
-    var S21 = 5,
+    let S21 = 5,
         S22 = 9,
         S23 = 14,
         S24 = 20;
-    var S31 = 4,
+    let S31 = 4,
         S32 = 11,
         S33 = 16,
         S34 = 23;
-    var S41 = 6,
+    let S41 = 6,
         S42 = 10,
         S43 = 15,
         S44 = 21;
@@ -629,14 +629,14 @@ export const digitUpperCase = (n = 0) => {
     let head = n < 0 ? '欠' : '';
     n = Math.abs(n);
     let s = '';
-    for (var i = 0; i < fraction.length; i++) {
+    for (let i = 0; i < fraction.length; i++) {
         s += (digit[Math.floor(n * 10 * Math.pow(10, i)) % 10] + fraction[i]).replace(/零./, '');
     }
     s = s || '整';
     n = Math.floor(n);
     for (let i = 0; i < unit[0].length && n > 0; i++) {
-        var p = '';
-        for (var j = 0; j < unit[1].length && n > 0; j++) {
+        let p = '';
+        for (let j = 0; j < unit[1].length && n > 0; j++) {
             p = digit[n % 10] + unit[1][j] + p;
             n = Math.floor(n / 10);
         }
