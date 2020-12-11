@@ -146,3 +146,14 @@ test('digitUpperCase', () => {
     expect(fun.digitUpperCase(12345.67)).toEqual("壹万贰仟叁佰肆拾伍元陆角柒分")
     expect(fun.digitUpperCase(-100)).toEqual("欠壹佰元整")
 })
+
+test('subText', () => {
+    expect(fun.subText("上山打老虎", 2)).toEqual("上山...")
+    expect(fun.subText("上山打老虎", 2, "***")).toEqual("上山***")
+
+    expect(fun.subText("", 2, "***")).toEqual("")
+})
+
+test('randomHexColor', () => {
+    expect(fun.randomHexColor().length).toEqual(7)
+})

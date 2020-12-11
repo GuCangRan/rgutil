@@ -147,6 +147,11 @@ export const randomCode = (codeLength = 4) => {
  */
 export const randomIP = () => Array(4).fill(0).map((_, i) => Math.floor(Math.random() * 255) + (i === 0 ? 1 : 0)).join('.');
 
+/**
+ * 随机16进制颜色
+ */
+export const randomHexColor = () => '#' + (Math.random() * 0xfffff * 1000000).toString(16).slice(0, 6);
+
 
 
 /**
@@ -646,3 +651,11 @@ export const digitUpperCase = (n = 0) => {
         .replace(/(零.)+/g, '零')
         .replace(/^整$/, '零元整');
 }
+
+/**
+ * 截取字符串
+ * @param {*} str 
+ * @param {*} length 
+ * @param {*} rep 
+ */
+export const subText = (str, length = 0, rep = "...") => str.length > length ? (str.substr(0, length) + rep) : str;

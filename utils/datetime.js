@@ -79,16 +79,16 @@ export const weekDayChinese = date => ['周日', '周一', '周二', '周三', '
 /**
  * 获取指定日期是几月-英文
  * @param {*} date 
+ * @param {*} isAbbreviation  是否简写方式,默认不简写
  */
-export const monthNameEnglish = date => ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', ' November', 'December'][date.getMonth()];
-
+export const monthNameEnglish = (date, isAbbreviation = false) => {
+    return isAbbreviation ? ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][date.getMonth()] : ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', ' November', 'December'][date.getMonth()];
+}
 /**
  * 获取指定日期是几月-汉语
  * @param {*} date 
  * @param {*} isNum 
  */
 export const monthNameChinese = (date, isNum = true) => {
-    return isNum ?
-        ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'][date.getMonth()] :
-        ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'][date.getMonth()];
+    return isNum ? ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'][date.getMonth()] : ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'][date.getMonth()];
 }

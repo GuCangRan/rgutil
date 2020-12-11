@@ -53,6 +53,7 @@ test('weekDayChinese', () => {
 //英语-指定日期的几月
 test('monthNameEnglish', () => {
     expect(fun.monthNameEnglish(new Date(2020, 11, 9))).toEqual("December")
+    expect(fun.monthNameEnglish(new Date(2020, 11, 9), true)).toEqual("Dec")
 
 })
 

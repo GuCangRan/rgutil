@@ -213,6 +213,15 @@ const children = [{
     },
     {
         base: {
+            name: "randomHexColor",
+            title: "随机16进制颜色",
+            desc: `随机16进制颜色`,
+            parmInfo: "()"
+        },
+        demo: [""]
+    },
+    {
+        base: {
             name: "capitalize",
             title: "首字母大写",
             desc: "首字母大写",
@@ -388,6 +397,23 @@ const children = [{
             parmInfo: "(number)"
         },
         demo: [12345.67, -100]
+    },
+    {
+        base: {
+            name: "subText",
+            title: "截取字符串",
+            desc: `截取字符串,多出部分默认为... 可自定义改为其他`,
+            parmInfo: "(str, length = 0, rep = '...')"
+        },
+        demo: [{
+                parms: ["上山打老虎", 2],
+                desc: [`"上山打老虎",2`]
+            },
+            {
+                parms: ["上山打老虎", 2, "***"],
+                desc: [`"上山打老虎",2,"***"`]
+            }
+        ]
     }
 ]
 const docData = {

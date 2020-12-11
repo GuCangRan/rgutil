@@ -111,23 +111,7 @@
       </div>
     </div>
     <div class="top-title" v-if="rightTop" @click="goTop">
-      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="48" height="48" fill="white" fill-opacity="0.01" />
-        <path
-          d="M12 33L24 21L36 33"
-          stroke="#ccc"
-          stroke-width="4"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-        <path
-          d="M12 13H36"
-          stroke="#ccc"
-          stroke-width="4"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </svg>
+      <KittyTop />
     </div>
   </div>
 </template>
@@ -137,10 +121,14 @@ import Prism from "prismjs";
 import "/@modules/prismjs/themes/prism.css";
 import * as $R from "../../index.js";
 import docData from "./../doc/index.js";
+import KittyTop from "./KittyTop.vue";
 
 import { reactive, ref, toRef, toRefs, computed, watch, onMounted } from "vue";
 export default {
   name: "BookDoc",
+  components: {
+    KittyTop,
+  },
   props: {
     tobottom: Number,
   },
@@ -440,7 +428,6 @@ function toString(val) {
     rgba(0, 173, 181, 1) 0%,
     rgba(0, 173, 181, 0.4) 100%
   );
-  -webkit-background-clip: text;
 }
 .top-title {
   position: fixed;
