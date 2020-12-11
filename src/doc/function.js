@@ -222,6 +222,26 @@ const children = [{
     },
     {
         base: {
+            name: "randomBoolean",
+            title: "随机生成布尔值",
+            desc: `随机生成布尔值`,
+            parmInfo: "()"
+        },
+        demo: [""]
+    },
+    {
+        base: {
+            name: "randomFloat",
+            title: "随机生成浮点数据",
+            desc: `随机生成浮点数据`,
+            parmInfo: "(min = 0, max = 1)"
+        },
+        demo: [{
+            parmMore: [0, 1]
+        }]
+    },
+    {
+        base: {
             name: "capitalize",
             title: "首字母大写",
             desc: "首字母大写",
@@ -413,6 +433,36 @@ const children = [{
                 parms: ["上山打老虎", 2, "***"],
                 desc: [`"上山打老虎",2,"***"`]
             }
+        ]
+    },
+    {
+        base: {
+            name: "formatPath",
+            title: "格式化路径",
+            desc: `格式化路径,斜线正常化`,
+            parmInfo: "(str, length = 0, rep = '...')"
+        },
+        demo: [
+            "\\ni\\wo\\ta\\",
+            ".//ni//wo///////ta/"
+        ]
+    },
+    {
+        base: {
+            name: "characterCount",
+            title: "字符出现次数",
+            desc: `字符在字符串中出现次数`,
+            parmInfo: "(str = '', char = '')"
+        },
+        demo: [{
+                parms: ["abcdabcabca", "a"],
+                desc: [`"abcdabcabca", "a"`]
+            },
+            {
+                parms: ["年轻人不讲武德,武德如风", "武德"],
+                desc: [`"年轻人不讲武德,武德如风", "武德"`]
+            }
+
         ]
     }
 ]

@@ -11,41 +11,14 @@ github仓库地址: https://github.com/GuCangRan/rgutil
  http://gucangran.gitee.io/rgutil
 
 
-rgutil默认以$R命名开头,您也可根据package.json中utilName改为别的名称进行打包
-
-您也可以更改.babelrc中注释内容支持es6以下版本的兼容,默认打包es6,毕竟大势所趋,任尔等东南西北风
-```
-1) $R是基于ES6语法设计的函数库,简洁到能用一行就一行的强迫症设计,当然还是要考虑阅读性的,毕竟给人类看的,顺便机器运行下
-2) $R函数基本保持独立,让您满足单独可复制自己所需方法,没有各种套娃的写法
-3) $R支持按npm方式按需加载,减少您的打包体积,只给你想要的
-4) $R支持单页面直接脚本引用,立即执行函数方式,umd方式,es6方式任您选
-```
-
-
-# 资源在线下载
-打包脚本文件放在dist文件夹,可自行下载直接使用,或自行编译源码打包
-
-说明: rgutil支持页面直接引用使用,操作如下
-
-```javascript
-//立即执行函数直接引用
-<script src="rgutil.js"></script>
-//或 引用 <script src="rgutil.umd.js"></script>
- <script>
-  let isNumber = $R.isNumber(8);
-  console.log(isNumber)
- </script>
-
-//ES6模块引用文件方式
-<script type="module">
-  import * as $R from 'rutil.esm.js'
-  let isNumber = $R.isNumber(8);
-  console.log(isNumber)
-</script>
-
-```
-
-
+>1. $R是基于ES6函数库，简洁到能用一行就一行的强迫症设计，依然考虑阅读性，毕竟给人类看的，顺便机器运行
+>2. $R函数基本保持独立，让您满足单独可复制自己所需方法，没有套娃地狱的写法
+>3. $R支持npm下载，Tree-shaking按需加载，只给你想要的
+>4. $R支持单页面直接脚本引用，立即执行函数方式，umd方式，es6方式任您选
+>5. $R文档支持在线大多数方法直接测试结果，就是图个方便，不香么
+>6. $R默认打包es6语法，毕竟大势所趋，可更改.babelrc中注释内容去打包支持<es6版本
+>7. $R采纳jest进行单元测试，可看测试报告
+>8. $R是默认命名，可修改package.json中utilName再打包，用你喜欢的
 
 
 # npm下载
@@ -56,14 +29,14 @@ npm install rgutil
 ```
 
 ```javascript
-//函数全部导入
+//1. 函数全部导入
 import * as $R from "rgutil";
 
 //代码写法:
  $R.isNumber(8)
 
 
-//按需导入
+//2. 按需导入
 import { isNumber } from "rgutil";
 
 //操代码写法
@@ -71,8 +44,33 @@ import { isNumber } from "rgutil";
 
 ```
 
+# 页面使用
+
+>打包后脚本在dist文件夹，自行下载
+
+```javascript
+//纯html页面直接引用
+//1. 立即执行函数直接引用
+<script src="rgutil.js"></script>
+//或 引用 <script src="rgutil.umd.js"></script>
+ <script>
+  let isNumber = $R.isNumber(8);
+  console.log(isNumber)
+ </script>
+
+//2. ES6模块引用文件方式
+<script type="module">
+  import * as $R from 'rutil.esm.js'
+  let isNumber = $R.isNumber(8);
+  console.log(isNumber)
+</script>
+
+```
+
 
 # 给作者一点氧气，缓解心脏和发型，感谢有您的支持和鼓励
 
 
-**特别说明**:很多函数借用了很多大神的开源文章和部分面试题,以及自己平时需要用到的,进行整理合成,希望函数工具能够整合很多的场景,而又保持独立函数特性,便于开发者直接引用,非常感谢这些大神的付出,致敬,这也是我自己的一个学习过程
+**特别说明：** 本函数库借鉴了很多大神的开源文章和部分面试题，以及自己平时所用，汇总合成。非常感谢这些大神的付出，致敬！这也是自己的一个学习过程，为开源贡献一份微薄之力。
+  
+   

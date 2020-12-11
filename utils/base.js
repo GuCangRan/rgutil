@@ -191,7 +191,7 @@ export const isHTMLTag = (str) => {
         details,dialog,menu,menuitem,summary, 
         content,element,shadow,template,blockquote,iframe,tfoot`.replace(/\s+/g, '').split(",");
     }
-    return cacheHTMLTag.includes(str.trim());
+    return cacheHTMLTag.includes(str);
 }
 /**
  * 是否svg标签
@@ -204,7 +204,7 @@ export const isSvgTag = (str) => {
         foreignObject,g,glyph,image,line,marker,mask,missing-glyph,path,pattern, 
         polygon,polyline,rect,switch,symbol,text,textpath,tspan,use,view`.replace(/\s+/g, '').split(",");
     }
-    return cacheSvgTag.includes(str.trim());
+    return cacheSvgTag.includes(str);
 }
 
 /**

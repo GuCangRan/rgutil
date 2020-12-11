@@ -152,7 +152,17 @@ export const randomIP = () => Array(4).fill(0).map((_, i) => Math.floor(Math.ran
  */
 export const randomHexColor = () => '#' + (Math.random() * 0xfffff * 1000000).toString(16).slice(0, 6);
 
+/**
+ * 随机生成布尔值
+ */
+export const randomBoolean = () => Math.random() >= 0.5;
 
+/**
+ * 随机生成浮点数据
+ * @param {*} min 
+ * @param {*} max 
+ */
+export const randomFloat = (min = 0, max = 1) => Math.random() * (max - min) + min;
 
 /**
  * 首字母大写
@@ -659,3 +669,17 @@ export const digitUpperCase = (n = 0) => {
  * @param {*} rep 
  */
 export const subText = (str, length = 0, rep = "...") => str.length > length ? (str.substr(0, length) + rep) : str;
+
+
+/**
+ * 格式化路径
+ * @param {*} path 
+ */
+export const formatPath = path => path.replace(/[\\/]+/g, '/');
+
+/**
+ * 字符在字符串中出现次数
+ * @param {*} str 
+ * @param {*} char 
+ */
+export const characterCount = (str = '', char = '') => str.split(char).length - 1;

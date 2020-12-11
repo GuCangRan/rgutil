@@ -157,3 +157,27 @@ test('subText', () => {
 test('randomHexColor', () => {
     expect(fun.randomHexColor().length).toEqual(7)
 })
+
+
+test('randomBoolean', () => {
+    let lboolen = fun.randomBoolean();
+    expect(lboolen == true || lboolen == false).toEqual(true)
+})
+
+
+test('randomFloat', () => {
+    let float = fun.randomFloat(0, 1);
+    expect(float >= 0 && float <= 1).toEqual(true)
+})
+
+test('formatPath', () => {
+
+    expect(fun.formatPath("\\ni\\wo\\ta\\")).toEqual("/ni/wo/ta/")
+    expect(fun.formatPath(".//ni//wo///////ta/")).toEqual("./ni/wo/ta/")
+})
+
+test('characterCount', () => {
+
+    expect(fun.characterCount("abcdabcabca", "a")).toEqual(4)
+    expect(fun.characterCount("年轻人不讲武德,武德如风", "武德")).toEqual(2)
+})
