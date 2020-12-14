@@ -1,5 +1,16 @@
-{}
-/**如果向下兼容,可以开启下面注释,目前版本更多针对>=ES6版本*/
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "current"
+        }
+      }
+    ]
+  ]
+}
+/**如果向下兼容,可以开启下面注释,目前版本针对>=ES6版本*/
 /* {
   "presets": [
     "@babel/env"

@@ -65,3 +65,12 @@ test('monthNameChinese', () => {
     expect(fun.monthNameChinese(new Date(2020, 11, 9), false)).toEqual("十二月")
 
 })
+
+test('timeDistance', () => {
+    expect(fun.timeDistance(new Date())).toEqual("此刻")
+
+    let startDate = new Date();
+    startDate.setHours(startDate.getHours() - 24);
+    expect(fun.timeDistance(startDate)).toEqual("1天前")
+
+})

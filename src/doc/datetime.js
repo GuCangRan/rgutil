@@ -129,6 +129,19 @@ const children = [{
                 desc: ["new Date(),false"],
             }
         ]
+    },
+    {
+        base: {
+            name: "timeDistance",
+            title: "时间距离",
+            desc: `传入时间与当前时间的距离描述,比如10天前,此刻,10秒前
+            具体分为: 年, 个月, 星期, 天, 小时, 分钟, 秒`,
+            parmInfo: "(startDate)"
+        },
+        demo: [{
+            parms: [new Date(2020, 11, 11)],
+            desc: ["new Date(2020,11,11)"],
+        }]
     }
 ]
 const docData = {

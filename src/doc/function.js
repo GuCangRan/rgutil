@@ -56,17 +56,6 @@ const children = [{
             desc: ["\"<div v-for='(group, index) in listDoc' :key='index'>123</div>\""]
         }]
     },
-    // {
-    //     base: {
-    //         name: "getType",
-    //         title: "获取对象类型",
-    //         desc: "获取当前对象类型",
-    //         parmInfo: "(any)"
-    //     },
-    //     demo: [null, undefined, () => {}, {},
-    //         []
-    //     ]
-    // },
     {
         base: {
             name: "escapeHTML",
@@ -78,6 +67,15 @@ const children = [{
             parms: ["<div v-for='(group, index) in listDoc' :key='index'>123</div>"],
             desc: ["\"<div v-for='(group, index) in listDoc' :key='index'>123</div>\""]
         }]
+    },
+    {
+        base: {
+            name: "unescapeHTML",
+            title: "还原html",
+            desc: "将转义后html进行还原",
+            parmInfo: "(string)"
+        },
+        demo: ["&lt;div v-for=&#39;(group, index) in listDoc&#39; :key=&#39;index&#39;&gt;123&lt;/div&gt;"]
     },
     {
         base: {
@@ -333,7 +331,7 @@ const children = [{
             name: "bytesToSize",
             title: "比特单位转换",
             desc: `比特单位转换
-    单位:B, KB, MB, GB, TB, PB, EB, ZB, YB
+    单位: B, KB, MB, GB, TB, PB, EB, ZB, YB
             `,
             parmInfo: "(bytes)"
         },

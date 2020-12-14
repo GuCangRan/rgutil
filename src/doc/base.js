@@ -445,8 +445,25 @@ const children = [{
             parmInfo: "(val)"
         },
         demo: ["28-D2-44-A6-05-55", "24:f9:a3:7b:d5:51"]
+    },
+    {
+        base: {
+            name: "isUrl",
+            title: "是否URL地址",
+            desc: "是否URL地址,支持https,http",
+            parmInfo: "(val)"
+        },
+        demo: ["https://www.baidu.com", "http://www.baidu.com"]
+    },
+    {
+        base: {
+            name: "isVersion",
+            title: "是否X.Y.Z格式版本号",
+            desc: "是否X.Y.Z格式版本号,严格模式",
+            parmInfo: "(val)"
+        },
+        demo: ["1.0.2", "1.3"]
     }
-    
 ];
 
 const docData = {

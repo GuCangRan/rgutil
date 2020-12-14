@@ -242,3 +242,15 @@ export const isIPV4 = val => /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}
  * @param {*} val 
  */
 export const isMacAddress = val => /^((([a-f0-9]{2}:){5})|(([a-f0-9]{2}-){5}))[a-f0-9]{2}$/i.test(val);
+
+/**
+ * 是否URL地址
+ * @param {*} val 
+ */
+export const isUrl = val => /^(((ht|f)tps?):\/\/)?[\w-]+(\.[\w-]+)+([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?$/.test(val);
+
+/**
+ * 是否X.Y.Z格式版本号
+ * @param {*} val 
+ */
+export const isVersion = val => /^\d+(?:\.\d+){2}$/.test(val)

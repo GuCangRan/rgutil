@@ -319,3 +319,15 @@ test('isMacAddress', () => {
 
     expect(fun.isMacAddress("24:f9:a3:7b:d5:51")).toEqual(true)
 })
+
+test('isUrl', () => {
+    expect(fun.isUrl("https://www.baidu.com")).toEqual(true)
+    expect(fun.isUrl("http://www.baidu.com")).toEqual(true)
+    expect(fun.isUrl("http://2232")).toEqual(false)
+})
+
+test('isVersion', () => {
+    expect(fun.isVersion("1.0.2")).toEqual(true)
+    expect(fun.isVersion("1.3")).toEqual(false)
+
+})

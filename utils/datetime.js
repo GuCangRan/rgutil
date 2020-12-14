@@ -92,3 +92,25 @@ export const monthNameEnglish = (date, isAbbreviation = false) => {
 export const monthNameChinese = (date, isNum = true) => {
     return isNum ? ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'][date.getMonth()] : ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'][date.getMonth()];
 }
+
+
+/**
+ * 时间距离
+ * 传入时间与当前时间的距离描述,比如10天前,此刻,10秒前
+ * @param startDate 时间类型
+ */
+export const timeDistance = (startDate) => {
+    let timeSpan = Math.round((Date.now() - startDate.getTime()) / 1000);
+    if (timeSpan == 0) {
+        return "此刻";
+    }
+
+    let timeDesc = ['年', '个月', '星期', '天', '小时', '分钟', '秒'];
+    let timeValue = [31536000, 2592000, 604800, 86400, 3600, 60, 1];
+    for (let i = 0; i < timeValue.length; i++) {
+        let inm = Math.floor(timeSpan / timeValue[i]);
+        if (inm != 0) {
+            return inm + timeDesc[i] + '前';
+        }
+    }
+}

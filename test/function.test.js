@@ -20,9 +20,19 @@ test('splitLines', () => {
 test('removeHTMLTags', () => {
     expect(fun.removeHTMLTags("<div v-for='(group, index) in listDoc' :key='index'>123</div>")).toEqual("123")
 })
+
+
 test('escapeHTML', () => {
-    expect(fun.escapeHTML("<div v-for='(group, index) in listDoc' :key='index'>123</div>")).toEqual("&lt;div v-for=&#39;(group, index) in listDoc&#39; :key=&#39;index&#39;&gt;123&lt;/div&gt;")
+    expect(fun.escapeHTML("<div v-for='(group, index) in listDoc' :key='index'>123</div>"))
+    .toEqual("&lt;div v-for=&#39;(group, index) in listDoc&#39; :key=&#39;index&#39;&gt;123&lt;/div&gt;")
 })
+
+test('unescapeHTML', () => {
+    expect(fun.unescapeHTML("&lt;div v-for=&#39;(group, index) in listDoc&#39; :key=&#39;index&#39;&gt;123&lt;/div&gt;"))
+    .toEqual("<div v-for='(group, index) in listDoc' :key='index'>123</div>")
+})
+
+
 test('formatNumber', () => {
     expect(fun.formatNumber(123456789)).toEqual("123,456,789")
     expect(fun.formatNumber(123456789, 4, "-")).toEqual("1-2345-6789")

@@ -33,7 +33,7 @@ export const removeHTMLTags = str => str.replace(/<[^>]*>/g, '');
 
 
 /**
- * 去除HTML标签
+ * 转义HTML标签
  * @param {*} str 
  */
 export const escapeHTML = str =>
@@ -48,6 +48,23 @@ export const escapeHTML = str =>
             '"': '&quot;'
         } [tag] || tag)
     );
+/**
+ * 还原HTML标签
+ * @param {*} str 
+ */
+export const unescapeHTML = str =>
+    str.replace(
+        /(&amp;|&lt;|&gt;|&#39;|&quot;)/g,
+        tag =>
+        ({
+             '&amp;':'&',
+            '&lt;': '<',
+            '&gt;': '>',
+            '&#39;': "'",
+            '&quot;': '"'
+        } [tag] || tag)
+    );
+
 
 /**
  * 将数字进行分割
