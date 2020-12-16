@@ -1,7 +1,15 @@
-html,
+/* * {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+} */
 body {
   margin: 0;
   height: 100vh;
+  width: 100vw;
+  display: flex;
   overflow: hidden;
 }
 
@@ -19,7 +27,7 @@ body {
 ::-webkit-scrollbar-thumb {
   border-radius: 7px;
   -webkit-box-shadow: inset 0 0 6px #ccc;
-  background-color: #e8e8e8;
+  background-color: #0b8df6;
 }
 
 ::-webkit-scrollbar-button {

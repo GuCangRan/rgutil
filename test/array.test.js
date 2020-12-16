@@ -248,3 +248,24 @@ test('arrTranspose', () => {
         [3, 6, 9]
     ])
 })
+
+test('arrZip', () => {
+    expect(fun.arrZip(['a', 'b', 'c'], [1, 2, 3])).toEqual([
+        ['a', 1],
+        ['b', 2],
+        ['c', 3]
+    ])
+
+})
+
+test('arrUnZip', () => {
+    expect(fun.arrUnZip([
+        ['a', 1],
+        ['b', 2],
+        ['c', 3]
+    ])).toEqual([
+        ['a', 'b', 'c'],
+        [1, 2, 3]
+    ])
+
+})

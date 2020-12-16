@@ -358,6 +358,40 @@ const children = [{
                 [7, 8, 9],
             ]
         ]
+    },
+    {
+        base: {
+            name: "arrZip",
+            title: "压缩数组",
+            desc: `压缩数组
+            参数:  传递多个数组`,
+            parmInfo: "(...arr)"
+        },
+        demo: [{
+            parms: [
+                ['a', 'b', 'c'],
+                [1, 2, 3]
+            ],
+            desc: ["['a', 'b', 'c'],[1, 2, 3]"],
+        }]
+    },
+    {
+        base: {
+            name: "arrUnZip",
+            title: "解压数组",
+            desc: "解压数组",
+            parmInfo: `(arr)`
+        },
+        demo: [{
+            parms: [
+                [
+                    ["a", 1],
+                    ["b", 2],
+                    ["c", 3]
+                ]
+            ],
+            desc: [`[["a",1],["b",2],["c",3]]`],
+        }]
     }
 ];
 

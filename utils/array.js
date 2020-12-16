@@ -170,3 +170,20 @@ export const arrToTree = (items, id = null, link = 'parent_id') =>
  * @param {*} matrix 
  */
 export const arrTranspose = matrix => matrix[0].map((col, i) => matrix.map(row => row[i]));
+
+/**
+ * 压缩数组
+ * @param  {...any} arr 
+ */
+export const arrZip = (...arr) => Array.from({
+    length: Math.max(...arr.map(a => a.length))
+}, (_, i) => arr.map(a => a[i]));
+
+
+/**
+ * 解压缩数组
+ * @param {*} arr 
+ */
+export const arrUnZip = arr => arr.reduce((acc, c) => (c.forEach((v, i) => acc[i].push(v)), acc), Array.from({
+    length: Math.max(...arr.map(a => a.length))
+}, (_) => []));

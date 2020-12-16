@@ -103,6 +103,7 @@ export default {
 <style lang="scss">
 .container {
   height: 100vh;
+  width: 100vw;
   display: grid;
   grid-auto-rows: 50px 1fr 30px;
 }
@@ -176,9 +177,9 @@ main {
 }
 
 footer {
-  background-color: #2d3748;
+  background-color: #f5f7f9;
   line-height: 30px;
   text-align: center;
-  color: #e2eaf79a;
+  color: #cfd1d4;
 }
 </style>
