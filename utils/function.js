@@ -57,7 +57,7 @@ export const unescapeHTML = str =>
         /(&amp;|&lt;|&gt;|&#39;|&quot;)/g,
         tag =>
         ({
-             '&amp;':'&',
+            '&amp;': '&',
             '&lt;': '<',
             '&gt;': '>',
             '&#39;': "'",
@@ -700,3 +700,10 @@ export const formatPath = path => path.replace(/[\\/]+/g, '/');
  * @param {*} char 
  */
 export const characterCount = (str = '', char = '') => str.split(char).length - 1;
+
+//html = document.documentElement.outerHTML
+/**
+ * 解析内容中http地址
+ * @param {*} html 
+ */
+//export const parseUrl = (html) => html.match(/(url\(|src=|href=)[\"\']*([^\"\'\(\)\<\>\[\] ]+)[\"\'\)]*|(http:\/\/[\w\-\.]+[^\"\'\(\)\<\>\[\] ]+)/gi) || [];

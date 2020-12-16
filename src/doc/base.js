@@ -463,6 +463,15 @@ const children = [{
             parmInfo: "(val)"
         },
         demo: ["1.0.2", "1.3"]
+    },
+    {
+        base: {
+            name: "isLeapYear",
+            title: "是否闰年",
+            desc: "是否闰年",
+            parmInfo: "(year)"
+        },
+        demo: [2020, 2021]
     }
 ];
 

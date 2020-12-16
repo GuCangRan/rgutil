@@ -96,3 +96,47 @@ export const getCookie = (key) => {
  * @param {*} key 
  */
 export const delCookie = (key) => getCookie(key) ? setCookie(key, "", -1) : false;
+
+/**
+ * 获取页面可视高度
+ */
+export const pageViewHeight = () => {
+    let d = document,
+        a = d.compatMode == "BackCompat" ? d.body : d.documentElement;
+    return a.clientHeight;
+}
+
+/**
+ * 获取页面可视宽度
+ */
+export const pageViewWidth = () => {
+    let d = document,
+        a = d.compatMode == "BackCompat" ? d.body : d.documentElement;
+    return a.clientWidth;
+}
+
+/**
+ * 复制文本
+ * @param {*} str 
+ */
+export const copyText = (str) => {
+    const el = document.createElement("textarea");
+    el.value = str;
+    el.setAttribute("readonly", "");
+    el.style.position = "absolute";
+    el.style.left = "-9999px";
+    el.style.top = "-9999px";
+    document.body.appendChild(el);
+    const selected =
+        document.getSelection().rangeCount > 0 ?
+        document.getSelection().getRangeAt(0) :
+        false;
+    el.select();
+    document.execCommand("copy");
+    document.body.removeChild(el);
+    if (selected) {
+        document.getSelection().removeAllRanges();
+        document.getSelection().addRange(selected);
+    }
+    return true;
+}

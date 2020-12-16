@@ -90,7 +90,38 @@ const children = [{
             testmode: "button"
         },
         demo: []
+    },
+    {
+        base: {
+            name: "pageViewHeight",
+            title: "页面可视高度",
+            desc: "获取页面可视高度",
+            parmInfo: "()",
+            showDemo: false
+        },
+        demo: [""]
+    },
+    {
+        base: {
+            name: "pageViewWidth",
+            title: "页面可视宽度",
+            desc: "获取页面可视宽度",
+            parmInfo: "()",
+            showDemo: false
+        },
+        demo: [""]
+    },
+    {
+        base: {
+            name: "copyText",
+            title: "复制文本",
+            desc: "复制文本",
+            parmInfo: "(str)",
+            testmode: "button"
+        },
+        demo: []
     }
+
 ]
 
 const docData = {

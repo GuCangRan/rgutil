@@ -33,3 +33,5 @@ test('getCookie', () => {})
 
 //删除cookie
 test('delCookie', () => {})
+
+test('copyText', () => {})

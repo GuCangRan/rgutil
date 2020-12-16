@@ -423,11 +423,7 @@ function toString(val) {
   color: transparent;
   font-size: 30px;
   font-weight: bold;
-  background: linear-gradient(
-    45deg,
-    rgba(0, 173, 181, 1) 0%,
-    rgba(0, 173, 181, 0.4) 100%
-  );
+  color: #397905;
 }
 .top-title {
   position: fixed;

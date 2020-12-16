@@ -1,7 +1,8 @@
+html,
 body {
   margin: 0;
   height: 100vh;
-  /* padding: 5px 5px; */
+  overflow: hidden;
 }
 
 ::-webkit-scrollbar {

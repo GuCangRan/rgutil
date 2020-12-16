@@ -254,3 +254,9 @@ export const isUrl = val => /^(((ht|f)tps?):\/\/)?[\w-]+(\.[\w-]+)+([\w.,@?^=%&:
  * @param {*} val 
  */
 export const isVersion = val => /^\d+(?:\.\d+){2}$/.test(val)
+
+/**
+ * 是否闰年
+ * @param {*} year 
+ */
+export const isLeapYear = (year) => 0 === year % 4 && (year % 100 !== 0 || year % 400 === 0);

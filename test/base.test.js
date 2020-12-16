@@ -331,3 +331,10 @@ test('isVersion', () => {
     expect(fun.isVersion("1.3")).toEqual(false)
 
 })
+
+
+test('isLeapYear', () => {
+    expect(fun.isLeapYear(2020)).toEqual(true)
+    expect(fun.isLeapYear(2021)).toEqual(false)
+
+})
