@@ -304,7 +304,7 @@ function toString(val) {
   .doc-container {
     // border: 1px solid green;
     overflow: auto;
-    background: #fffffd;
+    background: #fff;
   }
 }
 .pre-desc {
@@ -334,7 +334,7 @@ function toString(val) {
 .search-input:focus {
   border-color: #66afe9;
   outline: 0;
-  box-shadow: inset 0 0 1px #00000013, 0 0 8px #76bbed;
+  // box-shadow: inset 0 0 1px #00000013, 0 0 8px #76bbed;
 }
 
 .doc-title {
@@ -367,13 +367,13 @@ function toString(val) {
 }
 
 .doc-desc {
-  border: 1px solid #e9e6e63d;
   position: relative;
-  margin: 10px 20px;
+  margin: 30px 20px;
   padding: 10px 10px;
-  border: 1px solid #ccc;
-  background-color: #fffffd;
-  box-shadow: 2px 2px 5px #ccc;
+  // border: 1px solid #ccc;
+  background-color: #fff;
+  box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
 
   &::before,
   &::after {

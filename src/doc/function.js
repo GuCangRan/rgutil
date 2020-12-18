@@ -462,6 +462,26 @@ const children = [{
             }
 
         ]
+    },
+    {
+        base: {
+            name: "deepFreeze",
+            title: "深度冻结对象",
+            desc: `深度冻结对象,只能冻结对象`,
+            parmInfo: "(obj)",
+            showDemo: false
+        },
+        demo: []
+    }, ,
+    {
+        base: {
+            name: "starScore",
+            title: "获取星标评分",
+            desc: `获取星标评分,只支持五颗星, 评分区间: 0-5 不在范围会强制加入区间最近边界`,
+            parmInfo: "(rate)",
+            showDemo: false
+        },
+        demo: [3]
     }
 ]
 const docData = {

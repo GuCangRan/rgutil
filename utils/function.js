@@ -707,3 +707,29 @@ export const characterCount = (str = '', char = '') => str.split(char).length - 
  * @param {*} html 
  */
 //export const parseUrl = (html) => html.match(/(url\(|src=|href=)[\"\']*([^\"\'\(\)\<\>\[\] ]+)[\"\'\)]*|(http:\/\/[\w\-\.]+[^\"\'\(\)\<\>\[\] ]+)/gi) || [];
+
+/**
+ * 深度冻结对象
+ * @param {*} obj 
+ */
+export const deepFreeze = (obj) => {
+    var prop, propKey
+    Object.freeze(obj)
+    for (propKey in obj) {
+        prop = obj[propKey];
+        if (!obj.hasOwnProperty(propKey) || !(typeof prop === "object") || Object.isFrozen(prop)) {
+            continue;
+        }
+        deepFreeze(prop);
+    }
+}
+
+/**
+ * 获取星标评分
+ * @param {*} rate 
+ */
+export const starScore = rate => {
+    if (rate < 0) rate = 0;
+    if (rate > 5) rate = 5;
+    return "★★★★★☆☆☆☆☆".slice(5 - rate, 10 - rate);
+}

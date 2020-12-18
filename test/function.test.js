@@ -24,12 +24,12 @@ test('removeHTMLTags', () => {
 
 test('escapeHTML', () => {
     expect(fun.escapeHTML("<div v-for='(group, index) in listDoc' :key='index'>123</div>"))
-    .toEqual("&lt;div v-for=&#39;(group, index) in listDoc&#39; :key=&#39;index&#39;&gt;123&lt;/div&gt;")
+        .toEqual("&lt;div v-for=&#39;(group, index) in listDoc&#39; :key=&#39;index&#39;&gt;123&lt;/div&gt;")
 })
 
 test('unescapeHTML', () => {
     expect(fun.unescapeHTML("&lt;div v-for=&#39;(group, index) in listDoc&#39; :key=&#39;index&#39;&gt;123&lt;/div&gt;"))
-    .toEqual("<div v-for='(group, index) in listDoc' :key='index'>123</div>")
+        .toEqual("<div v-for='(group, index) in listDoc' :key='index'>123</div>")
 })
 
 
@@ -190,4 +190,28 @@ test('characterCount', () => {
 
     expect(fun.characterCount("abcdabcabca", "a")).toEqual(4)
     expect(fun.characterCount("年轻人不讲武德,武德如风", "武德")).toEqual(2)
+})
+
+test('deepFreeze', () => {
+    let obj = {
+        a: 1,
+        b: {
+            c: 2
+        }
+    }
+    fun.deepFreeze(obj);
+    try {
+        obj.a = 10;
+        obj.b.c = 20;
+    } catch (error) {}
+
+    expect(obj.a).toEqual(1)
+    expect(obj.b.c).toEqual(2)
+
+})
+
+
+test('starScore', () => {
+    expect(fun.starScore(3)).toEqual("★★★☆☆")
+    expect(fun.starScore(10)).toEqual("★★★★★")
 })
