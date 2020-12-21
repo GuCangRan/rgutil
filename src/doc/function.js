@@ -472,16 +472,38 @@ const children = [{
             showDemo: false
         },
         demo: []
-    }, ,
+    },
     {
         base: {
             name: "starScore",
             title: "获取星标评分",
             desc: `获取星标评分,只支持五颗星, 评分区间: 0-5 不在范围会强制加入区间最近边界`,
-            parmInfo: "(rate)",
-            showDemo: false
+            parmInfo: "(rate)"
         },
         demo: [3]
+    },
+    {
+        base: {
+            name: "once",
+            title: "执行一次函数",
+            desc: `只执行一次函数
+
+             传入参数:fn是一个函数
+             示例:
+             let count = 1;
+             const testFn = () => {
+                 count++;
+                 return count;
+             }
+             const myOnce = $R.once(testFn);
+             myOnce(); //执行结果: 2
+             myOnce(); //执行结果: 2
+             myOnce(); //执行结果: 2
+            `,
+            parmInfo: "(fn)",
+            showDemo: false
+        },
+        demo: []
     }
 ]
 const docData = {

@@ -3,13 +3,15 @@ import array from './array.js'
 import func from './function.js'
 import datetime from './datetime.js'
 import window from './window.js'
+import cache from './cache.js'
 //将文档说明都集成此数组
 const dataList = [
     base,
     array,
     func,
     datetime,
-    window
+    window,
+    cache
 ]
 
 //合成文档json结构,界面调用

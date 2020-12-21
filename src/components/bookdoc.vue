@@ -320,7 +320,7 @@ function toString(val) {
 .search-input {
   width: 90%;
   height: 36px;
-  border: 1px solid #dcdfe6;
+  border: 1px solid #efeeee;
   border-radius: 4px;
   margin: 5px 0;
 }
@@ -456,6 +456,6 @@ function toString(val) {
 }
 
 pre[class*="language-"] {
-  background: #cccccc36;
+  background: #efeeeea6;
 }
 </style>

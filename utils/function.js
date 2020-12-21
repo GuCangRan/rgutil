@@ -730,6 +730,24 @@ export const deepFreeze = (obj) => {
  */
 export const starScore = rate => {
     if (rate < 0) rate = 0;
-    if (rate > 5) rate = 5;
+    else if (rate > 5) rate = 5;
     return "★★★★★☆☆☆☆☆".slice(5 - rate, 10 - rate);
+}
+
+/**
+ * 只执行一次函数
+ * @param {*} fn 
+ */
+export const once = (fn) => {
+    let called = false,
+        result;
+
+    return (...rest) => {
+        if (called) return result;
+        called = true;
+        result = fn.apply(null, rest);
+        fn = null;
+        return result;
+    }
+
 }

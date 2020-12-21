@@ -215,3 +215,17 @@ test('starScore', () => {
     expect(fun.starScore(3)).toEqual("★★★☆☆")
     expect(fun.starScore(10)).toEqual("★★★★★")
 })
+
+
+test('once', () => {
+    let count = 1;
+    const testFn = () => {
+        count++;
+        return count;
+    }
+    const myOnce = fun.once(testFn);
+    expect(myOnce()).toEqual(2)
+    expect(myOnce()).toEqual(2)
+    expect(myOnce()).toEqual(2)
+
+})
