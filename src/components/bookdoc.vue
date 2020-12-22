@@ -5,7 +5,7 @@
         <input
           type="text"
           v-model="search"
-          :placeholder="verison"
+          :placeholder="apiDesc"
           class="search-input serarch-position"
         />
       </div>
@@ -42,14 +42,17 @@
           class="doc-desc"
         >
           <div class="doc-desc-name">{{ item.name }} {{ item.parmInfo }}</div>
+
           <div>
             <pre class="pre-desc">{{ item.desc }}</pre>
           </div>
+
           <!-- 自测试函数处理 -->
           <div class="test-demo" v-if="item.showDemo || item.showDemo != false">
             <div v-if="item.testmode && item.testmode == 'button'">
               武德至上 ：
               <input
+                v-if="!!item?.isInput || item.isInput != false"
                 type="text"
                 v-model="item.testValue"
                 class="search-input"
@@ -59,6 +62,7 @@
                 测试走你
               </button>
             </div>
+            <!-- 常规函数 -->
             <div v-else>
               武德至上 ：
               <input
@@ -83,6 +87,8 @@
               ></pre>
             </div>
           </div>
+
+          <!-- 函数示例demo -->
           <pre
             ref="pre"
             class="language-css"
@@ -136,7 +142,7 @@ export default {
     let myDoc = docData();
     let docTree = myDoc.docTree;
     let docMapDemo = myDoc.docMapDemo;
-    const verison = ref(`  找找看 ${docMapDemo.size} 个API  ${$R.version}`);
+    const apiDesc = ref(`  找找看 ${docMapDemo.size} 个API  ${$R.version}`);
     //console.log(docTree);
     const coneDocTree = JSON.parse(JSON.stringify(docTree));
     const search = ref("");
@@ -208,10 +214,22 @@ export default {
       }
 
       try {
-        const ret = eval(`$R['${item.name}'].apply($R, [${item.testValue}]);`);
-        item.testResult = `测试函数: $R.${item.name}(${
-          item.testValue
-        })  //测试结果: ${toString(ret)}`;
+        let ret = "";
+        if (item.testValue == undefined || item.testValue == "") {
+          ret = eval(`$R['${item.name}'].apply($R, []);`);
+        } else {
+          ret = eval(`$R['${item.name}'].apply($R, [${item.testValue}]);`);
+        }
+
+        if (item.testValue == undefined || item.testValue == "") {
+          item.testResult = `测试函数: $R.${
+            item.name
+          }()  //测试结果: ${toString(ret)}`;
+        } else {
+          item.testResult = `测试函数: $R.${item.name}(${
+            item.testValue
+          })  //测试结果: ${toString(ret)}`;
+        }
       } catch (error) {
         //console.error(error);
         item.testResult = `$R.${item.name}(${item.testValue})发生异常,原因:${error}`;
@@ -220,12 +238,7 @@ export default {
 
     //点击左侧函数,右侧滚动轴位置定位
     const goToScrollPostion = (item) => {
-      const elem = document.getElementById(item.name);
-      if (elem && elem.scrollIntoView) {
-        elem.scrollIntoView();
-      } else if (elem && elem.scrollIntoViewIfNeeded) {
-        elem.scrollIntoViewIfNeeded();
-      }
+      $R.goToTopId(item.name);
     };
 
     let tobottom = ref(0);
@@ -267,7 +280,7 @@ export default {
       tobottom,
       rightTop,
       goTop,
-      verison,
+      apiDesc,
     };
   },
 };

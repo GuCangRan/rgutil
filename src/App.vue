@@ -1,10 +1,10 @@
 <template>
   <div class="container">
     <header>
-      <div class="header-title">$R</div>
+      <div class="header-title">$̚R̚</div>
       <div class="header-tips">
         <div class="header-tips-content">
-          禿然听见需求方创意&&杠铃般的笑声, 我自己拔掉了最后一根头发
+          禿然听见需求方创意&杠铃般的笑声, 我自己拔掉了最后一根头发
         </div>
       </div>
 

@@ -34,12 +34,24 @@ export const goToTopClassName = (className) => {
 /**
  * 某个具备id元素内置滚动轴回到顶部
  */
-export const goToTopId = (id) => {
+export const goToTopId = (id, isAnimation = false) => {
     let el = document.getElementById(id);
     if (!el) {
         throw (`未能找到id为 ${ID} 的节点,请确认`)
     }
-    el.scrollTo(0, 0);
+
+    if (isAnimation) {
+        el.scrollIntoView({
+            behavior: 'smooth'
+        })
+        return;
+    }
+
+    if (el.scrollIntoView) {
+        el.scrollIntoView();
+    } else if (el.scrollIntoViewIfNeeded) {
+        el.scrollIntoViewIfNeeded();
+    }
 };
 
 /**
@@ -150,4 +162,50 @@ export const copyText = (str) => {
         document.getSelection().addRange(selected);
     }
     return true;
+}
+
+/**
+ * 进入全屏
+ * @param {*} selector 
+ */
+export const fullscreen = (selector = document.body) => {
+    if (selector.requestFullscreen) {
+        selector.requestFullscreen();
+    } else if (selector.mozRequestFullScreen) {
+        selector.mozRequestFullScreen();
+    } else if (selector.webkitRequestFullscreen) {
+        selector.webkitRequestFullscreen();
+    } else if (selector.msRequestFullscreen) {
+        selector.msRequestFullscreen();
+    }
+    //return true;
+};
+
+/**
+ * 退出全屏
+ */
+export const exitFullscreen = () => {
+    if (document.exitFullScreen) {
+        document.exitFullScreen();
+    } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+    }
+    //return true;
+}
+
+/**
+ * 是否全屏状态
+ */
+export const isFullScreen = () => {
+    return !!(
+        //document.fullscreen ||
+        document.mozFullScreen ||
+        document.webkitIsFullScreen ||
+        document.webkitFullScreen ||
+        document.msFullScreen
+    );
 }

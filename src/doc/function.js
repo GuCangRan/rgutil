@@ -414,7 +414,7 @@ const children = [{
             parmInfo: "(str, length = 0, rep = '...')"
         },
         demo: [
-            "\\ni\\wo\\ta\\",
+            ".\\ni\\wo\\ta\\",
             ".//ni//wo///////ta/"
         ]
     },

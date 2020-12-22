@@ -26,7 +26,7 @@ const children = [{
             name: "goToTopId",
             title: "滚动ID顶部",
             desc: "某个具备id元素内置滚动轴回到顶部",
-            parmInfo: "(id)",
+            parmInfo: "(id, isAnimation = false)",
             showDemo: false
         },
         demo: []
@@ -127,12 +127,43 @@ const children = [{
             title: "复制文本",
             desc: "复制文本",
             parmInfo: "(str)",
-            testmode: "button",
+            testmode: "button"
+        },
+        demo: []
+    },
+    {
+        base: {
+            name: "fullscreen",
+            title: "进入全屏",
+            desc: "进入全屏",
+            parmInfo: "(selector = document.body)",
+            isInput: false,
+            testmode: "button"
+        },
+        demo: []
+    },
+    {
+        base: {
+            name: "exitFullscreen",
+            title: "退出全屏",
+            desc: "退出全屏",
+            parmInfo: "()",
+            isInput: false,
+            testmode: "button"
+        },
+        demo: []
+    },
+    {
+        base: {
+            name: "isFullScreen",
+            title: "是否全屏状态",
+            desc: "是否全屏状态",
+            parmInfo: "()",
+            isInput: false,
             testmode: "button"
         },
         demo: []
     }
-
 ]
 
 const docData = {
