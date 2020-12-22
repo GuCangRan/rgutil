@@ -113,10 +113,21 @@ const children = [{
     },
     {
         base: {
+            name: "scrollPostion",
+            title: "获取滚动轴位置",
+            desc: "获取滚动轴位置",
+            parmInfo: "(el = window)",
+            showDemo: false
+        },
+        demo: [""]
+    },
+    {
+        base: {
             name: "copyText",
             title: "复制文本",
             desc: "复制文本",
             parmInfo: "(str)",
+            testmode: "button",
             testmode: "button"
         },
         demo: []

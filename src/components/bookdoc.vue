@@ -185,7 +185,12 @@ export default {
           }
 
           //常规对象的执行测试样例
-          const ret = $R[funcName].apply($R, [demoValue]);
+          let ret = "";
+          if (demoValue == "") {
+            ret = $R[funcName].apply($R, []);
+          } else {
+            ret = $R[funcName].apply($R, [demoValue]);
+          }
           //const ret = $R[funcName](...[demoValue]);
           return `$R.${funcName}(${toString(demoValue)})  //${toString(ret)}`;
         } catch (error) {
@@ -298,7 +303,7 @@ function toString(val) {
   .doc-nav {
     // border: 1px solid rebeccapurple;
     overflow: auto;
-    background: #fffffd;
+    background: #fff;
   }
 
   .doc-container {
@@ -309,6 +314,7 @@ function toString(val) {
 }
 .pre-desc {
   font-size: 18px;
+  line-height: 1.5;
 }
 
 .search-wrapper {
@@ -342,7 +348,8 @@ function toString(val) {
   margin-top: 15px;
   padding: 5px 5px 5px 5px;
   font-weight: bold;
-  border-left: 3px solid #66afe9;
+  border-left: 4px solid #66afe9;
+  border-radius: 5px;
   color: #66afe9;
 }
 
@@ -354,7 +361,7 @@ function toString(val) {
   display: grid;
   grid-template-columns: 180px 1fr;
   cursor: Pointer;
-  background: #fffffd;
+  background: #fff;
 
   & div {
     border: 1px solid #f1f1f1;
@@ -372,8 +379,12 @@ function toString(val) {
   padding: 10px 10px;
   // border: 1px solid #ccc;
   background-color: #fff;
-  box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.2);
+  // box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 12px 0 rgba(198, 203, 222, 0.8);
   border-radius: 5px;
+  border-width: 0 0 0 5px;
+  border-color: #ff7a7a;
+  border-style: solid;
 
   &::before,
   &::after {

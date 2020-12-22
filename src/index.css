@@ -19,15 +19,15 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px #ccc;
+  /* -webkit-box-shadow: inset 0 0 6px #ccc; */
   background-color: #fff;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb {
   border-radius: 7px;
-  -webkit-box-shadow: inset 0 0 6px #ccc;
-  background-color: #0b8df6;
+  /* -webkit-box-shadow: inset 0 0 6px #ccc; */
+  background-color: #aaa;
 }
 
 ::-webkit-scrollbar-button {

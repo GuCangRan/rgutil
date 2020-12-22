@@ -115,6 +115,17 @@ export const pageViewWidth = () => {
     return a.clientWidth;
 }
 
+
+/**
+ * 获取滚动轴位置
+ * @param {*} el 
+ */
+export const scrollPostion = (el = window) =>
+    ({
+        x: (el.pageXOffset !== undefined) ? el.pageXOffset : el.scrollLeft,
+        y: (el.pageYOffset !== undefined) ? el.pageYOffset : el.scrollTop
+    });
+
 /**
  * 复制文本
  * @param {*} str 

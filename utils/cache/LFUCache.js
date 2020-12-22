@@ -22,6 +22,7 @@ export default class LFUCache {
     }
 
     put(key, value) {
+        if (this.size <= 0) return;
         let time = 1
         let min = Math.min(...this.times.values())
         if (this.values.has(key)) {
@@ -41,5 +42,9 @@ export default class LFUCache {
             this.values.delete(delKey)
             this.times.delete(delKey)
         }
+    }
+    clear() {
+        this.values.clear();
+        this.times.clear();
     }
 }

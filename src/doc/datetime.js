@@ -5,8 +5,9 @@ const children = [{
             desc: `格式化日期
               valueFormat: yyyy-MM-dd HH:mm:fff
                            yy   M  d  H  m  f    格式任意组合\n
-              dateTime: 默认当前日期new Date()`,
-            parmInfo: "(valueFormat, dateTime = new Date())"
+              dateTime: 可不传值, 默认当前日期new Date()
+              timeDiff=8:默认增加8小时,国内不用处理,如果有时区差异地区,可调整此时区来获取当地时间`,
+            parmInfo: "(valueFormat, dateTime = new Date(),timeDiff=8)"
         },
         demo: [{
             parms: ["yyyy-MM-dd HH:mm:fff"],
@@ -49,7 +50,7 @@ const children = [{
         },
         demo: [{
                 parms: [new Date("2020-09-16")],
-                desc: ["new Date(\"2020-09-16\")"],
+                desc: [`new Date("2020-09-16")`],
             }
 
         ]

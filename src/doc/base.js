@@ -431,11 +431,20 @@ const children = [{
     {
         base: {
             name: "isIPV4",
-            title: "是否ip-v4",
-            desc: "是否ip-v4",
+            title: "是否ipv4",
+            desc: "是否ipv4",
             parmInfo: "(val)"
         },
         demo: ["127.0.0.1", "234.345.123.3"]
+    },
+    {
+        base: {
+            name: "isIPV6",
+            title: "是否ipv6",
+            desc: "是否ipv4",
+            parmInfo: "(val)"
+        },
+        demo: ["fe80::1457:990b:fd57:d88c%23","127.0.0.1"]
     },
     {
         base: {

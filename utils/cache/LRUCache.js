@@ -17,6 +17,7 @@ export default class LRUCache {
         return v
     }
     put(k, v) {
+        if (this.size <= 0) return;
         if (this.cache.has(k)) this.cache.delete(k)
 
         this.cache.set(k, v)
@@ -24,5 +25,9 @@ export default class LRUCache {
         if (this.cache.size > this.capacity) {
             this.cache.delete(this.cache.keys().next().value)
         }
+    }
+
+    clear() {
+        this.cache.clear();
     }
 }

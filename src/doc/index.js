@@ -2,6 +2,7 @@ import base from './base.js'
 import array from './array.js'
 import func from './function.js'
 import datetime from './datetime.js'
+import encryption from './encryption.js'
 import window from './window.js'
 import cache from './cache.js'
 //将文档说明都集成此数组
@@ -10,6 +11,7 @@ const dataList = [
     array,
     func,
     datetime,
+    encryption,
     window,
     cache
 ]

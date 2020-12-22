@@ -4,14 +4,16 @@
  const children = [{
          base: {
              name: "LRUCache",
-             title: "LRU缓存处理",
-             desc: `LRU缓存处理,超出容量范围时，删除一个'最近最少使用'缓存；如果键存在于缓存中，则获取键的值，否则返回 -1。
+             title: "LRU缓存结构",
+             desc: `LRU缓存结构,超出容量范围时，删除一个'最近最少使用'缓存；
+          如果键存在于缓存中，则获取键的值，否则返回 -1。
           参数: capacity 容量大小，Number类型，不存在返回-1
           示例:
           let cache = $R.LRUCache(2); // 2代表缓存容量; $R.LRUCache(capacity)每调用一次就产生一个新的缓存空间
           方法: 
            cache.put(key,value); //key:主键, value:对象值
            cache.get(key); //获取返回值,key:主键
+           cache.clear(); //清除内置缓存所有数据
 
           cache.put(1, 1);
           cache.put(2, 2);
@@ -27,15 +29,16 @@
      {
          base: {
              name: "LFUCache",
-             title: "LFU缓存处理",
-             desc: `LFUCache，当缓存达到其容量时，则应该在插入新项之前，使最不经常使用的项无效。在此问题中，当两个或更多个键具有相同使用频率时，去除'最久未使用'的键。
-             如果键存在于缓存中，则获取键的值，否则返回 -1。
-             参数: capacity 容量大小,Number类型
+             title: "LFU缓存结构",
+             desc: `LFUCache缓存结构，当缓存达到其容量时，则应该在插入新项之前，使最不经常使用的项无效。在此问题中，当两个或更多个键具有相同使用频率时，去除'最久未使用'的键。
+         如果键存在于缓存中，则获取键的值，否则返回 -1。
+         参数: capacity 容量大小,Number类型
          示例:
          let cache = $R.LFUCache(2); // 2代表缓存容量 $R.LFUCache(capacity)每调用一次就产生一个新的缓存空间
          方法: 
           cache.put(key,value); //key:主键, value:对象值
           cache.get(key); //获取返回值,key:主键；不存在返回-1
+          cache.clear(); //清除内置缓存所有数据
 
           cache.put(1, 1);
           cache.put(2, 2);

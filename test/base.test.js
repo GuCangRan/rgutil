@@ -314,6 +314,12 @@ test('isIPV4', () => {
     expect(fun.isIPV4("234.345.123.3")).toEqual(false)
 })
 
+test('isIPV6', () => {
+    expect(fun.isIPV6("fe80::1457:990b:fd57:d88c%23")).toEqual(true)
+    expect(fun.isIPV6("127.0.0.1")).toEqual(false)
+})
+
+
 test('isMacAddress', () => {
     expect(fun.isMacAddress("28-D2-44-A6-05-55")).toEqual(true)
 

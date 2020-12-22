@@ -6,11 +6,12 @@
  * 获取格式化日期
  * @param {*} valueFormat 
  * @param {Date} dateTime 
+ * @param {*} timeDiff  默认时区差值,便于拓展
  */
-export const dateFormat = (valueFormat, dateTime = new Date()) => {
-    let dt = new Date(dateTime.getTime()); //重置日期对象,不改变传入日期对象
-    //let dtNow = new Date(+new Date() + 8 * 3600 * 1000).toISOString().split(/[^0-9]/).slice(0, -1);
-    dt.setHours(dt.getHours() + 8); //增加八个小时,否则会差8个小时时区
+export const dateFormat = (valueFormat, dateTime,timeDiff=8) => {
+    let dt = dateTime? new Date(dateTime.getTime()) : new Date(); //重置日期对象,不改变传入日期对象
+   
+    dt.setHours(dt.getHours() + timeDiff); //增加八个小时,否则会差8个小时时区
     let [y4, M2, d2, H2, m2, s2, f3] = dt.toISOString().split(/[^0-9]/).slice(0, -1);
     let dateObj = {
         "yyyy": y4,
