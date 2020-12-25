@@ -63,6 +63,46 @@ const children = [{
     },
     {
         base: {
+            name: "delLocalStorage",
+            title: "删除localStorage",
+            desc: "删除localStorage",
+            parmInfo: "(key)",
+            testmode: "button"
+        },
+        demo: []
+    },
+    {
+        base: {
+            name: "setSessionStorage",
+            title: "存储到sessionStorage",
+            desc: "存储到sessionStorage",
+            parmInfo: "(key, value)",
+            testmode: "button"
+        },
+        demo: []
+    },
+    {
+        base: {
+            name: "getSessionStorage",
+            title: "读取sessionStorage",
+            desc: "读取sessionStorage",
+            parmInfo: "(key)",
+            testmode: "button"
+        },
+        demo: []
+    },
+    {
+        base: {
+            name: "delSessionStorage",
+            title: "删除sessionStorage",
+            desc: "删除sessionStorage",
+            parmInfo: "(key)",
+            testmode: "button"
+        },
+        demo: []
+    },
+    {
+        base: {
             name: "setCookie",
             title: "创建cookie",
             desc: "创建cookie 默认,24小时",

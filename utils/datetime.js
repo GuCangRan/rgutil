@@ -8,9 +8,9 @@
  * @param {Date} dateTime 
  * @param {*} timeDiff  默认时区差值,便于拓展
  */
-export const dateFormat = (valueFormat, dateTime,timeDiff=8) => {
-    let dt = dateTime? new Date(dateTime.getTime()) : new Date(); //重置日期对象,不改变传入日期对象
-   
+export const dateFormat = (valueFormat, dateTime, timeDiff = 8) => {
+    let dt = dateTime ? new Date(dateTime.getTime()) : new Date(); //重置日期对象,不改变传入日期对象
+
     dt.setHours(dt.getHours() + timeDiff); //增加八个小时,否则会差8个小时时区
     let [y4, M2, d2, H2, m2, s2, f3] = dt.toISOString().split(/[^0-9]/).slice(0, -1);
     let dateObj = {
@@ -102,16 +102,21 @@ export const monthNameChinese = (date, isNum = true) => {
  */
 export const timeDistance = (startDate) => {
     let timeSpan = Math.round((Date.now() - startDate.getTime()) / 1000);
+    console.log(timeSpan)
     if (timeSpan == 0) {
         return "此刻";
     }
+
+    //处理传递时间大于当前时间情况
+    let timeBA = timeSpan > 0 ? "前" : "后";
+    timeSpan = Math.abs(timeSpan);
 
     let timeDesc = ['年', '个月', '星期', '天', '小时', '分钟', '秒'];
     let timeValue = [31536000, 2592000, 604800, 86400, 3600, 60, 1];
     for (let i = 0; i < timeValue.length; i++) {
         let inm = Math.floor(timeSpan / timeValue[i]);
         if (inm != 0) {
-            return inm + timeDesc[i] + '前';
+            return inm + timeDesc[i] + timeBA;
         }
     }
 }

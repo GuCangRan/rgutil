@@ -80,6 +80,31 @@ export const getLocalStorage = (key) => localStorage.getItem(key);
 
 
 /**
+ * 删除localStorage存储值
+ * @param {String} key  属性
+ */
+export const delLocalStorage = (key) => localStorage.removeItem(key);
+
+/**
+ * 增加sessionStorage值
+ * @param {*} key 
+ * @param {*} value 
+ */
+export const setSessionStorage = (key, value) => sessionStorage.setItem(key, value);
+
+/**
+ * 读取sessionStorage值
+ * @param {*} key 
+ */
+export const getSessionStorage = (key) => sessionStorage.getItem(key);
+/**
+ * 删除sessionStorage值
+ * @param {*} key 
+ */
+export const delSessionStorage = (key) => sessionStorage.removeItem(key);
+
+
+/**
  * 创建cookie
  * @param {*} key 
  * @param {*} value 
