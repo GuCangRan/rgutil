@@ -221,3 +221,37 @@ test('once', () => {
     expect(myOnce()).toEqual(2)
 
 })
+
+test('csvToArray', () => {
+    expect(fun.csvToArray('a,b\nc,d')).toEqual([
+        ['a', 'b'],
+        ['c', 'd']
+    ])
+
+    expect(fun.csvToArray('a;b\nc;d', ';')).toEqual([
+        ['a', 'b'],
+        ['c', 'd']
+    ])
+    expect(fun.csvToArray('col1,col2\na,b\nc,d', ',', true)).toEqual([
+        ['a', 'b'],
+        ['c', 'd']
+    ])
+
+})
+
+test('csvToJSON ', () => {
+    expect(fun.csvToJSON('col1,col2\na,b\nc,d')).toEqual([{
+        'col1': 'a',
+        'col2': 'b'
+    }, {
+        'col1': 'c',
+        'col2': 'd'
+    }])
+    expect(fun.csvToJSON('col1;col2\na;b\nc;d', ';')).toEqual([{
+        'col1': 'a',
+        'col2': 'b'
+    }, {
+        'col1': 'c',
+        'col2': 'd'
+    }])
+})

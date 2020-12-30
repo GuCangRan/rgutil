@@ -430,3 +430,32 @@ export const once = (fn) => {
     }
 
 }
+
+/**
+ * csv转换为数组
+ * @param {*} data  csv数据
+ * @param {*} delimiter 分割符,默认逗号
+ * @param {*} omitFirstRow 是否标题行 默认否
+ */
+export const csvToArray = (data, delimiter = ',', omitFirstRow = false) =>
+    data.slice(omitFirstRow ? data.indexOf('\n') + 1 : 0)
+    .split('\n')
+    .map(v => v.split(delimiter));
+
+/**
+ * 将csv数据转为json
+ * @param {*} data csv数据
+ * @param {*} delimiter 分割符,默认逗号
+ */
+export const csvToJSON = (data, delimiter = ',') => {
+    const titles = data.slice(0, data.indexOf('\n')).split(delimiter);
+    return data
+        .slice(data.indexOf('\n') + 1)
+        .split('\n')
+        .map(v => {
+            const values = v.split(delimiter);
+            return titles.reduce(
+                (obj, title, index) => ((obj[title] = values[index]), obj), {}
+            );
+        });
+};

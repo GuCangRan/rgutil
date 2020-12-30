@@ -50,7 +50,7 @@
           <!-- 自测试函数处理 -->
           <div class="test-demo" v-if="item.showDemo || item.showDemo != false">
             <div v-if="item.testmode && item.testmode == 'button'">
-              武德至上 ：
+              码德至上 ：
               <input
                 v-if="!!item?.isInput || item.isInput != false"
                 type="text"
@@ -64,7 +64,7 @@
             </div>
             <!-- 常规函数 -->
             <div v-else>
-              武德至上 ：
+              码德至上 ：
               <input
                 type="text"
                 v-model="item.testValue"
@@ -314,13 +314,11 @@ function toString(val) {
   grid-template-columns: 390px 1fr;
 
   .doc-nav {
-    // border: 1px solid rebeccapurple;
     overflow: auto;
     background: #fff;
   }
 
   .doc-container {
-    // border: 1px solid green;
     overflow: auto;
     background: #fff;
   }
@@ -353,7 +351,6 @@ function toString(val) {
 .search-input:focus {
   border-color: #66afe9;
   outline: 0;
-  // box-shadow: inset 0 0 1px #00000013, 0 0 8px #76bbed;
 }
 
 .doc-title {

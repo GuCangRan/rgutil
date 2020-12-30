@@ -477,6 +477,51 @@ const children = [{
             showDemo: false
         },
         demo: []
+    },
+    {
+        base: {
+            name: "csvToArray",
+            title: "csv转换为数组",
+            desc: `csv转换为数组
+            参数说明:
+              data : csv数据
+              delimiter = ',' :分割符,默认逗号
+              omitFirstRow = false :是否标题行 默认否`,
+            parmInfo: "(data, delimiter = ',', omitFirstRow = false)"
+        },
+        demo: [{
+                parms: ['a,b\nc,d'],
+                desc: [`'a,b\\nc,d'`]
+            },
+            {
+                parms: ['a;b\nc;d', ';'],
+                desc: [`'a;b\\nc;d', ';'`]
+            },
+            {
+                parms: ['col1,col2\na,b\nc,d', ',', true],
+                desc: [`'col1,col2\\na,b\\nc,d', ',', true`]
+            }
+        ]
+    },
+    {
+        base: {
+            name: "csvToJSON",
+            title: "csv转换为json",
+            desc: `csv转换为json
+            参数说明:
+              data : csv数据
+              delimiter = ',' :分割符,默认逗号`,
+            parmInfo: "(data, delimiter = ',')"
+        },
+        demo: [{
+                parms: ['col1,col2\na,b\nc,d'],
+                desc: [`col1,col2\\na,b\\nc,d`]
+            },
+            {
+                parms: ['col1;col2\na;b\nc;d', ';'],
+                desc: [`'col1;col2\\na;b\\nc;d', ';'`]
+            }
+        ]
     }
 ]
 const docData = {
