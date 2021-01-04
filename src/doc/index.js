@@ -5,6 +5,7 @@ import datetime from './datetime.js'
 import encryption from './encryption.js'
 import window from './window.js'
 import cache from './cache.js'
+import struct from './struct.js'
 //将文档说明都集成此数组
 const dataList = [
     base,
@@ -13,7 +14,8 @@ const dataList = [
     datetime,
     encryption,
     window,
-    cache
+    cache,
+    struct
 ]
 
 //合成文档json结构,界面调用

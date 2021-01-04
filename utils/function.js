@@ -311,6 +311,22 @@ export const deepClone = (obj, hash = new WeakMap()) => {
 // }
 
 /**
+ * 深度冻结对象
+ * @param {*} obj 
+ */
+export const deepFreeze = (obj) => {
+    var prop, propKey
+    Object.freeze(obj)
+    for (propKey in obj) {
+        prop = obj[propKey];
+        if (!obj.hasOwnProperty(propKey) || !(typeof prop === "object") || Object.isFrozen(prop)) {
+            continue;
+        }
+        deepFreeze(prop);
+    }
+}
+
+/**
  * 分割路径
  * @param {*} path 
  */
@@ -387,21 +403,7 @@ export const characterCount = (str = '', char = '') => str.split(char).length - 
  */
 //export const parseUrl = (html) => html.match(/(url\(|src=|href=)[\"\']*([^\"\'\(\)\<\>\[\] ]+)[\"\'\)]*|(http:\/\/[\w\-\.]+[^\"\'\(\)\<\>\[\] ]+)/gi) || [];
 
-/**
- * 深度冻结对象
- * @param {*} obj 
- */
-export const deepFreeze = (obj) => {
-    var prop, propKey
-    Object.freeze(obj)
-    for (propKey in obj) {
-        prop = obj[propKey];
-        if (!obj.hasOwnProperty(propKey) || !(typeof prop === "object") || Object.isFrozen(prop)) {
-            continue;
-        }
-        deepFreeze(prop);
-    }
-}
+
 
 /**
  * 获取星标评分

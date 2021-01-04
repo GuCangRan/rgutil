@@ -373,6 +373,16 @@ const children = [{
     },
     {
         base: {
+            name: "deepFreeze",
+            title: "深度冻结对象",
+            desc: `深度冻结对象,只能冻结对象`,
+            parmInfo: "(obj)",
+            showDemo: false
+        },
+        demo: []
+    },
+    {
+        base: {
             name: "splitPath",
             title: "分割路径",
             desc: `分割路径`,
@@ -436,16 +446,7 @@ const children = [{
 
         ]
     },
-    {
-        base: {
-            name: "deepFreeze",
-            title: "深度冻结对象",
-            desc: `深度冻结对象,只能冻结对象`,
-            parmInfo: "(obj)",
-            showDemo: false
-        },
-        demo: []
-    },
+
     {
         base: {
             name: "starScore",

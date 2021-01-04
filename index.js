@@ -10,3 +10,4 @@ export * from './utils/window.js';
 export * from './utils/datetime.js';
 export * from './utils/encryption.js';
 export * from './utils/cache.js';
+export * from './utils/struct.js';
