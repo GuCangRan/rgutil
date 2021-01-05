@@ -102,7 +102,6 @@ export const monthNameChinese = (date, isNum = true) => {
  */
 export const timeDistance = (startDate) => {
     let timeSpan = Math.round((Date.now() - startDate.getTime()) / 1000);
-    console.log(timeSpan)
     if (timeSpan == 0) {
         return "此刻";
     }

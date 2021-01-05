@@ -193,7 +193,7 @@ export const copyText = (str) => {
  * 进入全屏
  * @param {*} selector 
  */
-export const fullscreen = (selector = document.body) => {
+export const fullScreen = (selector = document.body) => {
     if (selector.requestFullscreen) {
         selector.requestFullscreen();
     } else if (selector.mozRequestFullScreen) {

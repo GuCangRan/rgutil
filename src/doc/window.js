@@ -173,7 +173,7 @@ const children = [{
     },
     {
         base: {
-            name: "fullscreen",
+            name: "fullScreen",
             title: "进入全屏",
             desc: "进入全屏",
             parmInfo: "(selector = document.body)",
