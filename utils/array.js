@@ -187,3 +187,135 @@ export const arrZip = (...arr) => Array.from({
 export const arrUnZip = arr => arr.reduce((acc, c) => (c.forEach((v, i) => acc[i].push(v)), acc), Array.from({
     length: Math.max(...arr.map(a => a.length))
 }, (_) => []));
+
+/**
+ * 冒泡排序
+ * @param {*} arr 
+ * @param {*} isNumTimes 
+ */
+export const bubbleSort = (arr, isNumTimes = false) => {
+    let temp = '',
+        sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        let flag = false;
+        for (let j = 0; j < arr.length - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                temp = arr[j + 1];
+                arr[j + 1] = arr[j];
+                arr[j] = temp;
+                flag = true;
+            }
+            sum++; //计算次数
+        }
+        if (!flag) {
+            break;
+        }
+    }
+    return isNumTimes ? [arr, sum] : arr;
+};
+
+
+/**
+ * 插入排序
+ * @param {*} arr 
+ * @param {*} isNumTimes 
+ */
+export const insertSort = (arr, isNumTimes = false) => {
+    let sum = 0;
+
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] < arr[i - 1]) {
+            let temp = arr[i];
+            let j = i - 1;
+            arr[i] = arr[j];
+
+            while (j >= 0 && temp < arr[j]) {
+                arr[j + 1] = arr[j];
+                j--;
+                sum++; //统计次数
+            };
+            arr[j + 1] = temp;
+        }
+    }
+    return isNumTimes ? [arr, sum] : arr;
+}
+
+/**
+ * 快速排序
+ * @param {*} arr 
+ * @param {*} isNumTimes 
+ */
+export const quickSort = (arr, isNumTimes = false) => {
+    quickSortObj.sum = 0;
+    console.log(arr)
+    arr = quickSortObj.quickSort(arr);
+    console.log(quickSortObj.sum)
+    return isNumTimes ? [arr, quickSortObj.sum] : arr;
+}
+
+const quickSortObj = {
+    sum: 0,
+    quickSort: function (arr) {
+        if (arr.length <= 1) {
+            return arr;
+        }
+        var medianIndex = Math.floor(arr.length / 2); // 分解值索引
+        var medianValue = arr.splice(medianIndex, 1); // 分界值
+        var left = [];
+        var right = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] < medianValue) {
+                left.push(arr[i])
+            } else {
+                right.push(arr[i])
+            }
+            this.sum++;
+        }
+        //console.log(medianIndex, medianValue, left, right)
+        return this.quickSort(left).concat(medianValue, this.quickSort(right));
+    }
+};
+
+/**
+ * 选择排序
+ * @param {*} arr 
+ */
+export const selectionSort = (arr, isNumTimes = false) => {
+    let sum = 0;
+    if (arr == null || arr.length < 2) {
+        return isNumTimes ? [arr, sum] : arr;
+    }
+    for (var i = 0; i < (arr.length - 1); i++) {
+        let minIndex = i;
+        for (let j = i + 1; j < arr.length; j++) {
+            minIndex = arr[j] < arr[minIndex] ? j : minIndex;
+            sum++;
+        }
+        let temp = arr[i];
+        arr[i] = arr[minIndex];
+        arr[minIndex] = temp;
+    }
+    return isNumTimes ? [arr, sum] : arr;
+}
+
+/**
+ * 希尔排序
+ * @param {*} arr 
+ * @param {*} isNumTimes 
+ */
+export const shellSort = (arr, isNumTimes = false) => {
+    var len = arr.length,
+        sum = 0;
+    var fraction = Math.floor(len / 2); // 定义间隔区间
+    for (fraction; fraction > 0; fraction = Math.floor(fraction / 2)) {
+        for (var i = fraction; i < len; i++) {
+            for (var j = i - fraction; j >= 0 && arr[j] > arr[fraction + j]; j -= fraction) {
+                var temp = arr[j];
+                arr[j] = arr[fraction + j]; // 后移
+                arr[fraction + j] = temp; // 填补
+                sum++;
+            }
+        }
+    }
+    return isNumTimes ? [arr, sum] : arr;
+}

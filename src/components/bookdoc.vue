@@ -174,7 +174,8 @@ export default {
 
     //测试demo示例函数
     const testCodeFunc = computed(() => {
-      return function (funcName, demoValue) {
+      return function (funcName, demoValueTemp) {
+        let demoValue = $R.deepClone(demoValueTemp);
         if (!$R[funcName]) {
           return `$R.${funcName}函数未能找到, 请确认文档是否正确`;
         }
@@ -213,12 +214,13 @@ export default {
         return;
       }
 
+      let testValue = $R.deepClone(item.testValue);
       try {
         let ret = "";
         if (item.testValue == undefined || item.testValue == "") {
           ret = eval(`$R['${item.name}'].apply($R, []);`);
         } else {
-          ret = eval(`$R['${item.name}'].apply($R, [${item.testValue}]);`);
+          ret = eval(`$R['${item.name}'].apply($R, [${testValue}]);`);
         }
 
         if (item.testValue == undefined || item.testValue == "") {
@@ -226,13 +228,13 @@ export default {
             item.name
           }()  //测试结果: ${toString(ret)}`;
         } else {
-          item.testResult = `测试函数: $R.${item.name}(${
-            item.testValue
-          })  //测试结果: ${toString(ret)}`;
+          item.testResult = `测试函数: $R.${
+            item.name
+          }(${testValue})  //测试结果: ${toString(ret)}`;
         }
       } catch (error) {
         //console.error(error);
-        item.testResult = `$R.${item.name}(${item.testValue})发生异常,原因:${error}`;
+        item.testResult = `$R.${item.name}(${testValue})发生异常,原因:${error}`;
       }
     };
 

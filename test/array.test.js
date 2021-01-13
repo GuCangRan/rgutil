@@ -269,3 +269,39 @@ test('arrUnZip', () => {
     ])
 
 })
+
+
+test('bubbleSort', () => {
+    expect(fun.bubbleSort([4, 2, 5, 1, 3])).toEqual([1, 2, 3, 4, 5]);
+    expect(fun.bubbleSort([4, 2, 5, 1, 3], true)).toEqual([
+        [1, 2, 3, 4, 5], 16
+    ]);
+})
+
+test('insertSort', () => {
+    expect(fun.insertSort([4, 2, 5, 1, 3])).toEqual([1, 2, 3, 4, 5]);
+    expect(fun.insertSort([4, 2, 5, 1, 3], true)).toEqual([
+        [1, 2, 3, 4, 5], 6
+    ]);
+})
+
+test('quickSort', () => {
+    expect(fun.quickSort([4, 2, 5, 1, 3])).toEqual([1, 2, 3, 4, 5]);
+    expect(fun.quickSort([4, 2, 5, 1, 3], true)).toEqual([
+        [1, 2, 3, 4, 5], 10
+    ]);
+})
+
+test('selectionSort', () => {
+    expect(fun.selectionSort([4, 2, 5, 1, 3])).toEqual([1, 2, 3, 4, 5]);
+    expect(fun.selectionSort([4, 2, 5, 1, 3], true)).toEqual([
+        [1, 2, 3, 4, 5], 10
+    ]);
+})
+
+test('shellSort ', () => {
+    expect(fun.shellSort([4, 2, 5, 1, 3])).toEqual([1, 2, 3, 4, 5]);
+    expect(fun.shellSort([4, 2, 5, 1, 3], true)).toEqual([
+        [1, 2, 3, 4, 5], 6
+    ]);
+})

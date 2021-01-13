@@ -30,14 +30,14 @@ npm install rgutil
 //1. 函数全部导入
 import * as $R from "rgutil";
 
-//代码写法:
+//写法:
  $R.isNumber(8)
 
 
 //2. 按需导入
 import { isNumber } from "rgutil";
 
-//操代码写法
+//写法
  isNumber(8)
 
 ```
@@ -54,15 +54,20 @@ import { isNumber } from "rgutil";
 //<script src="rgutil.umd.js"></script>
 
  <script>
+ 
   let isNumber = $R.isNumber(8);
   console.log(isNumber)
+
  </script>
 
 //2. ES6模块引用方式
 <script type="module">
+
   import * as $R from 'rutil.esm.js'
+
   let isNumber = $R.isNumber(8);
   console.log(isNumber)
+
 </script>
 
 ```

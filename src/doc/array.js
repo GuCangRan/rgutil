@@ -392,6 +392,143 @@ const children = [{
             ],
             desc: [`[["a",1],["b",2],["c",3]]`],
         }]
+    },
+    {
+        base: {
+            name: "bubbleSort",
+            title: "冒泡排序",
+            desc: `
+    相邻两个数逐个比较，如果前一个数比后一个数小则交换位置。
+
+    参数说明:
+    arr:输入数组
+    isNumTimes: 默认false,是否显示次数 如果为ture,返回数据格式: [排序数组,次数]
+            `,
+            parmInfo: `(arr, isNumTimes = false)`
+        },
+        demo: [{
+                parms: [
+                    [4, 2, 5, 1, 3]
+                ],
+                desc: [` [4, 2, 5, 1, 3]`],
+            },
+            {
+                parms: [
+                    [4, 2, 5, 1, 3], true
+                ],
+                desc: [` [4, 2, 5, 1, 3],true`],
+            }
+        ]
+    },
+    {
+        base: {
+            name: "insertSort",
+            title: "插入排序",
+            desc: `
+    假设前面 n-1 的元素已经排好序，将第n个元素插入到前面已经排好的序列中。
+
+    参数说明:
+    arr:输入数组
+    isNumTimes: 默认false,是否显示次数 如果为ture,返回数据格式: [排序数组,次数]
+            `,
+            parmInfo: `(arr, isNumTimes = false)`
+        },
+        demo: [{
+                parms: [
+                    [4, 2, 5, 1, 3]
+                ],
+                desc: [`[4, 2, 5, 1, 3]`],
+            },
+            {
+                parms: [
+                    [4, 2, 5, 1, 3], true
+                ],
+                desc: [`[4, 2, 5, 1, 3],true`],
+            }
+        ]
+    },
+    {
+        base: {
+            name: "quickSort",
+            title: "快速排序",
+            desc: `
+    冒泡排序的改进算法。通过多次的比较和交换来实现排序。
+
+    参数说明:
+    arr:输入数组
+    isNumTimes: 默认false,是否显示次数 如果为ture,返回数据格式: [排序数组,次数]
+            `,
+            parmInfo: `(arr, isNumTimes = false)`
+        },
+        demo: [{
+                parms: [
+                    [4, 2, 5, 1, 3]
+                ],
+                desc: [`[4, 2, 5, 1, 3]`],
+            },
+            {
+                parms: [
+                    [4, 2, 5, 1, 3], true
+                ],
+                desc: [`[4, 2, 5, 1, 3],true`],
+            }
+        ]
+    },
+    {
+        base: {
+            name: "selectionSort",
+            title: "选择排序",
+            desc: `
+    从待排序的数据元素中选出最小/最大的一个元素，存放在序列的起始位置，
+    然后再从剩余的未排序元素中寻找到最小/最大元素，然后放到已排序的序列的末尾。
+    以此类推，直到全部待排序的数据元素的个数为零。
+
+    参数说明:
+    arr:输入数组
+    isNumTimes: 默认false,是否显示次数 如果为ture,返回数据格式: [排序数组,次数]
+            `,
+            parmInfo: `(arr, isNumTimes = false)`
+        },
+        demo: [{
+                parms: [
+                    [4, 2, 5, 1, 3]
+                ],
+                desc: [`[4, 2, 5, 1, 3]`],
+            },
+            {
+                parms: [
+                    [4, 2, 5, 1, 3], true
+                ],
+                desc: [`[4, 2, 5, 1, 3],true`],
+            }
+        ]
+    },
+    {
+        base: {
+            name: "shellSort",
+            title: "希尔排序",
+            desc: `
+    希尔排序是把记录按下标的一定增量分组，对每组使用直接插入排序算法排序。
+
+    参数说明:
+    arr:输入数组
+    isNumTimes: 默认false,是否显示次数 如果为ture,返回数据格式: [排序数组,次数]
+            `,
+            parmInfo: `(arr, isNumTimes = false)`
+        },
+        demo: [{
+                parms: [
+                    [4, 2, 5, 1, 3]
+                ],
+                desc: [`[4, 2, 5, 1, 3]`],
+            },
+            {
+                parms: [
+                    [4, 2, 5, 1, 3], true
+                ],
+                desc: [`[4, 2, 5, 1, 3],true`],
+            }
+        ]
     }
 ];
 
