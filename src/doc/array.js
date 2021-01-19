@@ -402,7 +402,7 @@ const children = [{
 
     参数说明:
     arr:输入数组
-    isNumTimes: 默认false,是否显示次数 如果为ture,返回数据格式: [排序数组,次数]
+    isNumTimes: 默认false,是否显示时间复杂度O(次数) 如果为ture,返回数据格式: [排序数组,次数]
             `,
             parmInfo: `(arr, isNumTimes = false)`
         },
@@ -429,7 +429,7 @@ const children = [{
 
     参数说明:
     arr:输入数组
-    isNumTimes: 默认false,是否显示次数 如果为ture,返回数据格式: [排序数组,次数]
+    isNumTimes: 默认false,是否显示时间复杂度O(次数) 如果为ture,返回数据格式: [排序数组,次数]
             `,
             parmInfo: `(arr, isNumTimes = false)`
         },
@@ -456,7 +456,7 @@ const children = [{
 
     参数说明:
     arr:输入数组
-    isNumTimes: 默认false,是否显示次数 如果为ture,返回数据格式: [排序数组,次数]
+    isNumTimes: 默认false,是否显示时间复杂度O(次数) 如果为ture,返回数据格式: [排序数组,次数]
             `,
             parmInfo: `(arr, isNumTimes = false)`
         },
@@ -485,7 +485,7 @@ const children = [{
 
     参数说明:
     arr:输入数组
-    isNumTimes: 默认false,是否显示次数 如果为ture,返回数据格式: [排序数组,次数]
+    isNumTimes: 默认false,是否显示时间复杂度O(次数) 如果为ture,返回数据格式: [排序数组,次数]
             `,
             parmInfo: `(arr, isNumTimes = false)`
         },
@@ -512,7 +512,7 @@ const children = [{
 
     参数说明:
     arr:输入数组
-    isNumTimes: 默认false,是否显示次数 如果为ture,返回数据格式: [排序数组,次数]
+    isNumTimes: 默认false,是否显示时间复杂度O(次数) 如果为ture,返回数据格式: [排序数组,次数]
             `,
             parmInfo: `(arr, isNumTimes = false)`
         },

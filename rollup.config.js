@@ -8,7 +8,7 @@ import commonjs from 'rollup-plugin-commonjs';
 import {
     utilName
 } from './package.json';
-
+import '@babel/polyfill';
 
 var config = {
     input: 'index.js',
@@ -51,7 +51,33 @@ var config = {
         commonjs(), //Rollup 能转换 `ms` 为一个ES模块
         json(),
         babel({
-            exclude: ['node_modules/**']
+            exclude: ['node_modules/**'],
+            //>=es6版本
+            presets: [
+                [
+                    "@babel/preset-env",
+                    {
+                        "targets": "> 5%",
+                        "useBuiltIns": "usage",
+                        "corejs": 3
+                    }
+                ]
+            ]
+            //开启兼容ie11等版本直接打包处理,自行配置
+            // presets: [
+            //     [
+            //         '@babel/preset-env',
+            //         {
+            //             modules: false,
+            //             targets: {
+            //                 browsers: '> 1%, IE 11, not op_mini all, not dead',
+            //                 // node: "current"  
+            //             },
+            //             corejs: 3,
+            //             useBuiltIns: 'usage'
+            //         }
+            //     ]
+            // ]
         })
     ],
     external: [''], //  指出应将哪些模块视为外部模块

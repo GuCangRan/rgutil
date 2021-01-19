@@ -1,11 +1,4 @@
 node_modules/*
 demo/*
-src/*
-rollup.config.js
 *.local
-testcoverage/*
-testutil/*
-test/*
-node-test.js
-docs/*
-dist/*
+*.bat

@@ -247,9 +247,7 @@ export const insertSort = (arr, isNumTimes = false) => {
  */
 export const quickSort = (arr, isNumTimes = false) => {
     quickSortObj.sum = 0;
-    console.log(arr)
     arr = quickSortObj.quickSort(arr);
-    console.log(quickSortObj.sum)
     return isNumTimes ? [arr, quickSortObj.sum] : arr;
 }
 

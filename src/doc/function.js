@@ -117,7 +117,7 @@ const children = [{
                 console.log("test throttle" + val);
             }
             
-            var myThrottle = throttle(test, 1000);
+            var myThrottle = $R.throttle(test, 1000);
 
             myThrottle("测试传参"); //执行
             myThrottle("测试传参"); //节流时间内不执行
@@ -138,7 +138,7 @@ const children = [{
                 console.log("test throttle" + val);
             }
             
-            var myDebounce = debounce(test, 1000);
+            var myDebounce = $R.debounce(test, 1000);
 
             myDebounce("测试传参"); //防抖未执行
             myDebounce("测试传参"); //延迟1秒执

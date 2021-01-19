@@ -63,9 +63,7 @@
     <main>
       <BookDoc :tobottom="bValue" />
     </main>
-    <footer>
-      如果你在我身边多好, 我又何必点一杯心痛的饮料 "500一杯 白开水"
-    </footer>
+    <footer>点一杯心痛的饮料 "500一杯 白开水"</footer>
   </div>
 </template>
 

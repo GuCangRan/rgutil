@@ -140,3 +140,46 @@ test('eventEmitterMap', () => {
     ])
 
 })
+
+
+
+test('sensitiveWords', () => {
+    const sw = fun.sensitiveWords();
+    //追加敏感词
+    sw.addWords(['唐僧', '孙悟空', '猪八戒']);
+    sw.addWord('玉帝哥哥');
+
+    let value = "我爱唐僧哥哥";
+    //检测敏感词
+    expect(sw.containsDfa(value)).toEqual(true);
+    expect(sw.wordsDfa(value)).toEqual(['唐僧']);
+
+    value = "唐僧念紧箍咒,孙悟空要打唐僧,猪八戒看不懂";
+    expect(sw.containsDfa(value)).toEqual(true);
+    expect(sw.wordsDfa(value)).toEqual(['唐僧', '孙悟空', '唐僧', '猪八戒']);
+
+    value = "我爱嫦娥姐姐"
+    expect(sw.containsDfa(value)).toEqual(false);
+    expect(sw.wordsDfa(value)).toEqual([])
+
+    //检测敏感词替换
+    value = "我不是玉帝哥哥,就是个干滴滴的弟弟"
+    expect(sw.replaceDfa(value, '*', true)).toEqual("我不是*,就是个干滴滴的弟弟")
+    expect(sw.replaceDfa(value, '*', false)).toEqual(
+        "我不是****,就是个干滴滴的弟弟"
+    )
+})
+
+
+test('trie', () => {
+    let trie = fun.trie();
+    //追加敏感词
+    trie.inserts(['唐僧', '孙悟空', '猪八戒']);
+    trie.insert('玉帝哥哥');
+    //检测词语
+    expect(trie.search("唐僧")).toEqual(true);
+    expect(trie.search("唐僧你")).toEqual(false);
+    expect(trie.startsWith("唐")).toEqual(true);
+    expect(trie.startsWith("唐长老")).toEqual(false);
+
+})
