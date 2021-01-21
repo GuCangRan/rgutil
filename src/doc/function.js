@@ -523,6 +523,25 @@ const children = [{
                 desc: [`'col1;col2\\na;b\\nc;d', ';'`]
             }
         ]
+    },
+    {
+        base: {
+            name: "timeTaken",
+            title: "计算函数执行时间",
+            desc: `
+            参数说明:
+              传入函数,例如: () => Math.pow(2, 10)
+              返回函数结果 
+              时间计算是借助console处理,控制台可看到运行时间
+              console.time('timeTaken');
+              console.timeEnd('timeTaken');
+            `,
+            parmInfo: "(callback)"
+        },
+        demo: [{
+            parms: [() => Math.pow(2, 10)],
+            desc: [`() => Math.pow(2, 10)`]
+        }]
     }
 ]
 const docData = {

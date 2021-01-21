@@ -12,7 +12,7 @@ github仓库地址: https://github.com/GuCangRan/rgutil
 
 
 >1. $R是基于ES6函数库，易懂简洁到能用一行就一行的强迫症设计，依然考虑阅读性，毕竟给人类看的，顺便机器运行
->2. $R函数基本保持独立,让您满足单独可复制自己所需方法，摒弃套娃地狱写法
+>2. $R函数基本保持独立,让您满足单独可复制自己所需方法，嫌弃套娃地狱写法
 >3. $R支持npm下载，Tree-shaking按需加载函数，只给你想要的
 >4. $R支持单页面直接脚本引用，立即执行函数方式，umd方式，es6方式任您选
 >5. $R文档支持在线大多数方法直接测试结果，就是图个方便，不香么
@@ -49,11 +49,13 @@ import { isNumber } from "rgutil";
 ```javascript
 //纯html页面直接引用
 //1. 立即执行函数直接引用
-<script src="rgutil.js"></script>
+//<script src="rgutil.min.js"></script>
 //或引用
-//<script src="rgutil.umd.js"></script>
+//<script src="rgutil.umd.min.js"></script>
 
- <script>
+//在线直接引用
+<script src="https://cdn.jsdelivr.net/gh/GuCangRan/rgutil/dist/rgutil.min.js"></script>
+<script>
  
   let isNumber = $R.isNumber(8);
   console.log(isNumber)
@@ -63,7 +65,7 @@ import { isNumber } from "rgutil";
 //2. ES6模块引用方式
 <script type="module">
 
-  import * as $R from 'rutil.esm.js'
+  import * as $R from 'rutil.esm.min.js'
 
   let isNumber = $R.isNumber(8);
   console.log(isNumber)

@@ -461,3 +461,14 @@ export const csvToJSON = (data, delimiter = ',') => {
             );
         });
 };
+
+/**
+ * 计算函数执行时间
+ * @param {*}} callback 
+ */
+export const timeTaken = callback => {
+    console.time('timeTaken');
+    const r = callback();
+    console.timeEnd('timeTaken');
+    return r;
+};

@@ -255,3 +255,8 @@ test('csvToJSON ', () => {
         'col2': 'd'
     }])
 })
+
+test('timeTaken', () => {
+    expect(fun.timeTaken(() => Math.pow(2, 10))).toEqual(1024);
+
+})

@@ -313,16 +313,18 @@ function toString(val) {
 .doc-main {
   height: 100%;
   display: grid;
-  grid-template-columns: 390px 1fr;
+  grid-template-columns: 410px 1fr;
 
   .doc-nav {
     overflow: auto;
     background: #fff;
+    padding: 0 5px;
+    border: 5px solid #ecececc4;
   }
 
   .doc-container {
     overflow: auto;
-    background: #fff;
+    background: #ecececc4;
   }
 }
 .pre-desc {
@@ -339,7 +341,7 @@ function toString(val) {
 .search-input {
   width: 90%;
   height: 36px;
-  border: 1px solid #efeeee;
+  border: 1px solid #ccc;
   border-radius: 4px;
   margin: 5px 0;
 }
@@ -347,7 +349,7 @@ function toString(val) {
   top: 45px;
   position: fixed;
   left: 15px;
-  width: 360px;
+  width: 380px;
 }
 
 .search-input:focus {
@@ -387,15 +389,15 @@ function toString(val) {
 
 .doc-desc {
   position: relative;
-  margin: 30px 20px;
+  margin: 20px 10px;
   padding: 10px 10px;
   // border: 1px solid #ccc;
   background-color: #fff;
   // box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.2);
   box-shadow: 0 3px 12px 0 rgba(198, 203, 222, 0.8);
   border-radius: 5px;
-  border-width: 0 0 0 5px;
-  border-color: #ff7a7a;
+  border-width: 0 0 0 7px;
+  border-color: #ccc;
   border-style: solid;
 
   &::before,
