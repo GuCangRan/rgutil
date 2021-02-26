@@ -99,15 +99,15 @@ export const formatString = (val, cnt = 3, split = ',') => {
  * @param {*} timerNumber 
  */
 export const throttle = (func, wait = 100) => {
-    let timer = false;
+    let timer = null;
     return (...args) => {
         if (timer) {
             return;
         }
-        timer = true;
+
         timer = setTimeout(() => {
             func(...args)
-            timer = false;
+            timer = null;
         }, wait)
     }
 }
