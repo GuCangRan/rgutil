@@ -4,7 +4,7 @@
       <div class="search-wrapper">
         <input
           type="text"
-          v-model="search"
+          v-model.trim="search"
           :placeholder="apiDesc"
           class="search-input serarch-position"
         />
@@ -107,14 +107,6 @@
       <div class="heart-desc">
         喜欢就给作者一点氧气，您的氧气让作者可以面向宇宙编程，放飞发型
       </div>
-      <div id="myMoney" class="money-img">
-        <div v-show="tobottom == 0">
-          <img src="../assets/weixin.png" />
-        </div>
-        <div v-show="tobottom == 0">
-          <img src="../assets/zhifubao.png" />
-        </div>
-      </div>
     </div>
     <div class="top-title" v-if="rightTop" @click="goTop">
       <KittyTop />
@@ -124,7 +116,7 @@
 
 <script>
 import Prism from "prismjs";
-import "/@modules/prismjs/themes/prism.css";
+import "prismjs/themes/prism.css";
 import * as $R from "../../index.js";
 import docData from "./../doc/index.js";
 import KittyTop from "./KittyTop.vue";
@@ -258,8 +250,8 @@ export default {
         "scroll",
         () => {
           try {
-            let Top = document.getElementsByClassName("doc-container")[0]
-              .scrollTop;
+            let Top =
+              document.getElementsByClassName("doc-container")[0].scrollTop;
             rightTop.value = Top > 10 ? true : false;
           } catch (error) {}
         },
@@ -397,7 +389,7 @@ function toString(val) {
   box-shadow: 0 3px 12px 0 rgba(198, 203, 222, 0.8);
   border-radius: 5px;
   border-width: 0 0 0 7px;
-  border-color: #ccc;
+  border-color: #75bbe5;
   border-style: solid;
 
   &::before,

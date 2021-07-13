@@ -3,7 +3,7 @@
 github仓库地址: https://github.com/GuCangRan/rgutil
 
 码云仓库地址:    https://gitee.com/gucangran/rgutil
-# 文档地址
+# 文档地址 (支持Chrome和edge浏览器,内核>80才行,低版本空白)
  https://gucangran.github.io/rgutil/
 
  或

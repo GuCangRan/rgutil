@@ -8,26 +8,6 @@
         </div>
       </div>
 
-      <div @click="goMoney" style="padding-top: 3px">
-        <svg
-          width="30"
-          height="30"
-          viewBox="0 0 48 48"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <title>这个心怎么是黑色的,哭了</title>
-          <rect width="48" height="48" fill="white" fill-opacity="0.01" />
-          <path
-            d="M15 8C8.92487 8 4 12.9249 4 19C4 30 17 40 24 42.3262C31 40 44 30 44 19C44 12.9249 39.0751 8 33 8C29.2797 8 25.9907 9.8469 24 12.6738C22.0093 9.8469 18.7203 8 15 8Z"
-            fill="none"
-            stroke="#000000"
-            stroke-width="4"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-      </div>
       <div @click="goToGitee" style="padding-top: 3px">
         <svg
           t="1607325955714"
@@ -63,7 +43,7 @@
     <main>
       <BookDoc :tobottom="bValue" />
     </main>
-    <footer>点一杯心痛的饮料 "500一杯 白开水"</footer>
+    <footer>拒绝996 大小周</footer>
   </div>
 </template>
 

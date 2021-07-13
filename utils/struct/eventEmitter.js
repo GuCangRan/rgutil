@@ -20,7 +20,8 @@ export default class eventEmitter {
      * @param {*} fn   订阅函数
      */
     on(event, fn) {
-        if (!(fn instanceof Function)) {
+        //- !(fn instanceof Function) 
+        if (Object.prototype.toString.call(fn).slice(8, -1) != 'Function') {
             throw new Error("注册fn必须是一个函数")
         }
 
